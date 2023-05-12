@@ -1,0 +1,6 @@
+attributeIdCounter=48
+poleIdCounter=48
+relationIdCounter=0
+hyperedgeIdCounter=0
+entityIdCounter=28
+modelIdCounter=6
