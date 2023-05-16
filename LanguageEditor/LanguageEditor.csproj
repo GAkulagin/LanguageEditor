@@ -158,6 +158,7 @@
     <Compile Include="Models\Hyperedge.cs" />
     <Compile Include="Models\IAttribute.cs" />
     <Compile Include="Models\IAttributedElement.cs" />
+    <Compile Include="Models\IDeepClonable.cs" />
     <Compile Include="Models\IPoledElement.cs" />
     <Compile Include="Models\ModelData.cs" />
     <Compile Include="Models\Pole.cs" />

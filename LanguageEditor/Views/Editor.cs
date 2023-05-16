@@ -1,16 +1,8 @@
 ﻿using Northwoods.Go;
-using Northwoods.Go.Layouts;
-using Northwoods.Go.PanelLayouts;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LanguageEditor.Models;
+using System.Xml.Serialization;
 
 namespace LanguageEditor.Views
 {
@@ -33,6 +25,8 @@ namespace LanguageEditor.Views
             NodeTemplateSetup();
 
             _canvas.Model = model;
+
+            Entity.EntityChanged += OnEntityChange;
         }
 
 
@@ -65,6 +59,16 @@ namespace LanguageEditor.Views
                     new TextBlock { Margin = 3 }
                     .Bind("Text", "Name")
                     );
+        }
+
+        private void OnEntityChange(long key)
+        {
+            _canvas.Model.Commit(m =>
+            {
+                var node = ((ModelData)_canvas.Model).Entities.Find(e => e.Key == key);
+                
+                m.Set(node, "Name", "human11111");
+            }, "OnEntityChange");
         }
 
 
@@ -130,12 +134,12 @@ namespace LanguageEditor.Views
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine(_canvas.Model.ToJson());
         }
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void сеткаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,32 +149,7 @@ namespace LanguageEditor.Views
 
         private void buttonAddEntity_Click(object sender, EventArgs e)
         {
-            Entity entity1 = new Entity();
-            entity1.Name = "human";
-            entity1.MaxCount = 100;
-            entity1.IsAbstract = false;
-            entity1.Attributes.Add(new Attribute<string>
-            {
-                Name = "Name",
-                IsValueUnique = false,
-                Value = "Bill Clinton",
-            });
-            entity1.Attributes.Add(new Attribute<int>
-            {
-                Name = "Age",
-                IsValueUnique = false,
-                Value = 50,
-            });
-            entity1.Poles.Add(new Pole
-            {
-                IsExternal = true
-            });
-            entity1.Poles.Add(new Pole
-            {
-                IsExternal = false
-            });
-
-            EntityEdit form = new EntityEdit(entity1);
+            EntityEdit form = new EntityEdit(((ModelData)_canvas.Model).Entities[0]);
             form.Show();
         }
     }

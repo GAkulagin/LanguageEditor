@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace LanguageEditor.Models
 {
-    public class Hyperedge : IAttributedElement, IPoledElement
+    public class Hyperedge : ModelData.LinkData, IAttributedElement, IPoledElement
     {
-        public long Id { get; set; }
         public string Name { get; set; }
         public List<Relation> Relations { get; set; } = new List<Relation>();
         public List<Pole> Poles { get; } = new List<Pole>();

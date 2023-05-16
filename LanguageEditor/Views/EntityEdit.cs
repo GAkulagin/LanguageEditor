@@ -15,7 +15,6 @@ namespace LanguageEditor.Views
     public partial class EntityEdit : Form
     {
         private Entity _entity;
-        private BindingList<IAttribute> _attributes;
         
 
         public EntityEdit(Entity e)
@@ -23,7 +22,7 @@ namespace LanguageEditor.Views
             InitializeComponent();
 
             _entity = e;
-            _attributes = new BindingList<IAttribute>(_entity.Attributes);
+            e.Text = "dededd";
 
             ControlsSetup();
             DataGridSetup();
@@ -42,7 +41,7 @@ namespace LanguageEditor.Views
 
         private void DataGridSetup()
         {
-            dataGridView.DataSource = _attributes;
+            dataGridView.DataSource = new BindingList<IAttribute>(_entity.Attributes);
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.AutoResizeColumns();
 
@@ -52,6 +51,8 @@ namespace LanguageEditor.Views
             if (dataGridView.Columns["Id"] != null) dataGridView.Columns["Id"].Visible = false;
             if (dataGridView.Columns["Type"] != null) dataGridView.Columns["Type"].Visible = false;
         }
+
+
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
@@ -99,7 +100,14 @@ namespace LanguageEditor.Views
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            _entity.Name = textBoxName.Text;
+            _entity.MaxCount = (int)numericUpDownMaxCount.Value;
+            _entity.IsAbstract = checkBoxIsAbstract.Checked;
+            _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
+
             Close();
+
+            Entity.kjojjojoj(_entity);
         }
 
         private void buttonAddAttribute_Click(object sender, EventArgs e)
@@ -118,7 +126,7 @@ namespace LanguageEditor.Views
 
             if(dlg == DialogResult.OK)
             {
-                _attributes.RemoveAt(dataGridView.CurrentRow.Index);
+                _entity.Attributes.RemoveAt(dataGridView.CurrentRow.Index);
             }
         }
     }

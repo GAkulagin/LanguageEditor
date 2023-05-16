@@ -9,7 +9,7 @@ namespace LanguageEditor.Models
 {
     public class Attribute<T> : IAttribute
     {
-        public long Id { get; set; }
+        public long Key { get; set; }
 
         public string Name { get; set; }
 
@@ -39,8 +39,22 @@ namespace LanguageEditor.Models
         {
             IdSetter.SetId(this);
 
-            Name = "Attribute" + Id;
+            Name = "Attribute" + Key;
             IsValueUnique = false;
+        }
+
+
+        public IAttribute DeepCopy()
+        {
+            if (this == null) return null;
+
+            return new Attribute<T>()
+            {
+                Key = Key,
+                Name = Name,
+                IsValueUnique = IsValueUnique,
+                Value = Value
+            };
         }
     }
 }

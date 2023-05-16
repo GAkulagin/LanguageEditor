@@ -11,7 +11,7 @@ namespace LanguageEditor.Models
 {
     public class ModelData : GraphLinksModel<Entity, long, object, Hyperedge, long, Pole>
     {
-        public long Id { get; set; }
+        public long Key { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreationDate { get; set; }
         public ModelData Metamodel { get; set; }

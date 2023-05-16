@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LanguageEditor.Models
 {
-    public class Pole : IEquatable<Pole>
+    public class Pole : IEquatable<Pole>, IDeepClonable<Pole>
     {
-        public long Id { get; set; }
+        public long Key { get; set; }
         public bool IsExternal { get; set; }
 
         
@@ -17,9 +17,21 @@ namespace LanguageEditor.Models
             IdSetter.SetId(this);
         }
 
+
         public bool Equals(Pole other)
         {
-            return (this.Id == other.Id);
+            return (this.Key == other.Key);
+        }
+
+        public Pole DeepCopy()
+        {
+            if (this == null) return null;
+
+            return new Pole
+            {
+                Key = this.Key,
+                IsExternal = this.IsExternal
+            };
         }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace LanguageEditor.Models
 {
-    public interface IAttribute
+    public interface IAttribute : IDeepClonable<IAttribute>
     {
-        long Id { get; set; }
+        long Key { get; set; }
         string Name { get; set; }
         bool IsValueUnique { get; set; }
         Type Type { get; }

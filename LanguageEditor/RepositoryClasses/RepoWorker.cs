@@ -12,7 +12,7 @@ namespace LanguageEditor.RepositoryClasses
 {
     internal static class RepoWorker
     {
-        private static string _repoPath = @"G:\Users\User\source\repos\LanguageEditor\projects";
+        private static string _repoPath = @"C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\projects";
 
 
         public static List<ModelFile> GetModelFiles()

@@ -8,12 +8,8 @@ namespace LanguageEditor.Models
 {
     public class Relation : IAttributedElement
     {
-        public long Id { get; set; }
-        public string Name
-        {
-            get { return Name; }
-            set { Name = value == null ? "" : value; }
-        }
+        public long Key { get; set; }
+        public string Name { get; set; }
         public Pole SourcePole { get; set; }
         public Pole TargetPole { get; set; }
         public List<Entity> SourceEntities { get; set; } = new List<Entity>();

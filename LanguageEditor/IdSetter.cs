@@ -17,23 +17,23 @@ namespace LanguageEditor
         private static long entityIdCounter;
         private static long modelIdCounter;
 
-        private static string configPath = @"G:\Users\User\source\repos\LanguageEditor\config.txt";
+        private static string configPath = @"C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\config.txt";
 
         public static void SetId(IAttribute attribute)
         {
-            attribute.Id = attributeIdCounter;
+            attribute.Key = attributeIdCounter;
             attributeIdCounter++;
         }
 
         public static void SetId(Pole pole)
         {
-            pole.Id = poleIdCounter;
+            pole.Key = poleIdCounter;
             poleIdCounter++;
         }
 
         public static void SetId(Relation relation)
         {
-            relation.Id = relationIdCounter;
+            relation.Key = relationIdCounter;
             relationIdCounter++;
         }
 
@@ -45,13 +45,13 @@ namespace LanguageEditor
 
         public static void SetId(Hyperedge hyperedge)
         {
-            hyperedge.Id = hyperedgeIdCounter;
+            hyperedge.Key = hyperedgeIdCounter;
             hyperedgeIdCounter++;
         }
 
         public static void SetId(ModelData model)
         {
-            model.Id = modelIdCounter;
+            model.Key = modelIdCounter;
             modelIdCounter++;
         }
 
