@@ -16,7 +16,7 @@ namespace LanguageEditor.Models
         public List<Entity> TargetEntities { get; set; } = new List<Entity>();
 
 
-        public List<IAttribute> Attributes { get; } = new List<IAttribute>();
+        public List<Attribute> Attributes { get; } = new List<Attribute>();
 
 
         public Relation()

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LanguageEditor.Models
+namespace LanguageEditor
 {
-    public interface IDeepClonable<T>
+    class WrongTypeException : Exception
     {
-        T DeepCopy();
+        public WrongTypeException(string message) : base(message) { }
     }
 }

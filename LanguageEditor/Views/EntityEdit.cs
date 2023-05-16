@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LanguageEditor.Models;
 
@@ -41,15 +34,21 @@ namespace LanguageEditor.Views
 
         private void DataGridSetup()
         {
-            dataGridView.DataSource = new BindingList<IAttribute>(_entity.Attributes);
+            dataGridView.DataSource = new BindingList<Models.Attribute>(_entity.Attributes);
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.AutoResizeColumns();
 
             if (dataGridView.Columns["Name"] != null) dataGridView.Columns["Name"].HeaderText = "Имя";
             if (dataGridView.Columns["TypeName"] != null) dataGridView.Columns["TypeName"].HeaderText = "Тип";
             if (dataGridView.Columns["IsValueUnique"] != null) dataGridView.Columns["IsValueUnique"].HeaderText = "Уникальный";
-            if (dataGridView.Columns["Id"] != null) dataGridView.Columns["Id"].Visible = false;
+
+            if (dataGridView.Columns["Key"] != null) dataGridView.Columns["Key"].Visible = false;
             if (dataGridView.Columns["Type"] != null) dataGridView.Columns["Type"].Visible = false;
+            if (dataGridView.Columns["Value"] != null) dataGridView.Columns["Value"].Visible = false;
+
+            if (dataGridView.Columns["Name"] != null) dataGridView.Columns["Name"].DisplayIndex = 0;
+            if (dataGridView.Columns["TypeName"] != null) dataGridView.Columns["TypeName"].DisplayIndex = 1;
+            if (dataGridView.Columns["IsValueUnique"] != null) dataGridView.Columns["IsValueUnique"].DisplayIndex = 2;
         }
 
 

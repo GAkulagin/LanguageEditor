@@ -1,25 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LanguageEditor.Models
 {
-    public class Attribute<T> : IAttribute
+    public class Attribute
     {
+        private dynamic _value;
+
+        private Type _type;
+
         public long Key { get; set; }
 
         public string Name { get; set; }
 
         public bool IsValueUnique { get; set; }
 
-        public T Value { get; set; }
+        public dynamic Value
+        {
+            get { return _value; }
+            set
+            {
+                if (value == null) _value = null;
+                else if (_type == value.GetType()) _value = value;
+                else throw new WrongTypeException(
+                    $"Value does not match the attribute's type: type is {_type}, value is {value.GetType()}"
+                    );
+            }
+        }
 
         public Type Type
         {
-            get { return typeof(T); }
+            get { return _type; }
+            set
+            {
+                _type = value;
+
+                if (value.IsValueType) _value = Activator.CreateInstance(value);
+                else if (value.GetType() == typeof(string)) _value = "";
+                else _value = null;
+            }
         }
 
         // отображение типа данных в таблицах
@@ -35,26 +53,13 @@ namespace LanguageEditor.Models
         }
 
 
-        public Attribute()
+        public Attribute(Type type)
         {
             IdSetter.SetId(this);
 
             Name = "Attribute" + Key;
             IsValueUnique = false;
-        }
-
-
-        public IAttribute DeepCopy()
-        {
-            if (this == null) return null;
-
-            return new Attribute<T>()
-            {
-                Key = Key,
-                Name = Name,
-                IsValueUnique = IsValueUnique,
-                Value = Value
-            };
+            Type = type;
         }
     }
 }

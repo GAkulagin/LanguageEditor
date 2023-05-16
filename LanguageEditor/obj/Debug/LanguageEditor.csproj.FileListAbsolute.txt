@@ -120,7 +120,6 @@ C:\Users\Professional\Desktop\учеба\Курсовые работы\4 кур�
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\bin\Debug\System.ValueTuple.xml
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.csproj.AssemblyReference.cache
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Properties.Resources.resources
-C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Views.AttributeTypeSelect.resources
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Views.Editor.resources
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Views.EntityEdit.resources
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Views.MainMenu.resources

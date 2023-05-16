@@ -19,7 +19,7 @@ namespace LanguageEditor
 
         private static string configPath = @"C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\config.txt";
 
-        public static void SetId(IAttribute attribute)
+        public static void SetId(Models.Attribute attribute)
         {
             attribute.Key = attributeIdCounter;
             attributeIdCounter++;

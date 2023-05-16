@@ -2,7 +2,6 @@
 using System;
 using System.Windows.Forms;
 using LanguageEditor.Models;
-using System.Xml.Serialization;
 
 namespace LanguageEditor.Views
 {
@@ -134,7 +133,7 @@ namespace LanguageEditor.Views
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(_canvas.Model.ToJson());
+
         }
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)

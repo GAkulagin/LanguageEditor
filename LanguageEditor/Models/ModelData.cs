@@ -1,10 +1,6 @@
-﻿using Northwoods.Go;
-using Northwoods.Go.Models;
+﻿using Northwoods.Go.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace LanguageEditor.Models
@@ -36,25 +32,17 @@ namespace LanguageEditor.Models
             entity1.Name = "human";
             entity1.MaxCount = 100;
             entity1.IsAbstract = false;
-            entity1.Attributes.Add(new Attribute<string>
+            entity1.Attributes.Add(new Attribute(typeof(string))
             {
                 Name = "Name",
                 IsValueUnique = false,
                 Value = "Bill Clinton",
             });
-            entity1.Attributes.Add(new Attribute<int>
+            entity1.Attributes.Add(new Attribute(typeof(int))
             {
                 Name = "Age",
                 IsValueUnique = false,
                 Value = 50,
-            });
-            entity1.Poles.Add(new Pole
-            {
-                IsExternal = true
-            });
-            entity1.Poles.Add(new Pole
-            {
-                IsExternal = false
             });
             model.Entities.Add(entity1);
 

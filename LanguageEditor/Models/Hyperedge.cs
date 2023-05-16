@@ -13,7 +13,7 @@ namespace LanguageEditor.Models
         public List<Pole> Poles { get; } = new List<Pole>();
 
 
-        public List<IAttribute> Attributes { get; } = new List<IAttribute>();
+        public List<Attribute> Attributes { get; } = new List<Attribute>();
 
 
         public Hyperedge()
