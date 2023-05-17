@@ -14,9 +14,7 @@ namespace LanguageEditor.Models
         public Pole TargetPole { get; set; }
         public List<Entity> SourceEntities { get; set; } = new List<Entity>();
         public List<Entity> TargetEntities { get; set; } = new List<Entity>();
-
-
-        public List<Attribute> Attributes { get; } = new List<Attribute>();
+        public List<Attribute> Attributes { get; set; } = new List<Attribute>();
 
 
         public Relation()

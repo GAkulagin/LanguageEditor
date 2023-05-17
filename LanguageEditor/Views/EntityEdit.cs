@@ -15,7 +15,6 @@ namespace LanguageEditor.Views
             InitializeComponent();
 
             _entity = e;
-            e.Text = "dededd";
 
             ControlsSetup();
             DataGridSetup();
@@ -43,7 +42,6 @@ namespace LanguageEditor.Views
             if (dataGridView.Columns["IsValueUnique"] != null) dataGridView.Columns["IsValueUnique"].HeaderText = "Уникальный";
 
             if (dataGridView.Columns["Key"] != null) dataGridView.Columns["Key"].Visible = false;
-            if (dataGridView.Columns["Type"] != null) dataGridView.Columns["Type"].Visible = false;
             if (dataGridView.Columns["Value"] != null) dataGridView.Columns["Value"].Visible = false;
 
             if (dataGridView.Columns["Name"] != null) dataGridView.Columns["Name"].DisplayIndex = 0;

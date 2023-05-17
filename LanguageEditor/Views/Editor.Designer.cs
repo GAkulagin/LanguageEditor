@@ -66,14 +66,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.diagramControl.BackColor = System.Drawing.Color.White;
-            this.diagramControl.Location = new System.Drawing.Point(196, 28);
+            this.diagramControl.Location = new System.Drawing.Point(261, 34);
+            this.diagramControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.diagramControl.Name = "diagramControl";
-            this.diagramControl.Size = new System.Drawing.Size(611, 569);
+            this.diagramControl.Size = new System.Drawing.Size(815, 700);
             this.diagramControl.TabIndex = 0;
             // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButtonScale,
             this.toolStripButtonUpscale,
@@ -81,9 +83,9 @@
             this.toolStripSeparator1,
             this.toolStripButtonUndo,
             this.toolStripButtonRedo});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1012, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1349, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -102,62 +104,62 @@
             this.toolStripDropDownButtonScale.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonScale.Image")));
             this.toolStripDropDownButtonScale.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonScale.Name = "toolStripDropDownButtonScale";
-            this.toolStripDropDownButtonScale.Size = new System.Drawing.Size(72, 22);
+            this.toolStripDropDownButtonScale.Size = new System.Drawing.Size(86, 24);
             this.toolStripDropDownButtonScale.Text = "Масштаб";
             // 
             // toolStripMenuItemScale25
             // 
             this.toolStripMenuItemScale25.Name = "toolStripMenuItemScale25";
-            this.toolStripMenuItemScale25.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale25.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale25.Text = "25%";
             this.toolStripMenuItemScale25.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItemScale50
             // 
             this.toolStripMenuItemScale50.Name = "toolStripMenuItemScale50";
-            this.toolStripMenuItemScale50.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale50.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale50.Text = "50%";
             this.toolStripMenuItemScale50.Click += new System.EventHandler(this.toolStripMenuItemScale50_Click);
             // 
             // toolStripMenuItemScale75
             // 
             this.toolStripMenuItemScale75.Name = "toolStripMenuItemScale75";
-            this.toolStripMenuItemScale75.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale75.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale75.Text = "75%";
             this.toolStripMenuItemScale75.Click += new System.EventHandler(this.toolStripMenuItemScale75_Click);
             // 
             // toolStripMenuItemScale100
             // 
             this.toolStripMenuItemScale100.Name = "toolStripMenuItemScale100";
-            this.toolStripMenuItemScale100.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale100.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale100.Text = "100%";
             this.toolStripMenuItemScale100.Click += new System.EventHandler(this.toolStripMenuItemScale100_Click);
             // 
             // toolStripMenuItemScale125
             // 
             this.toolStripMenuItemScale125.Name = "toolStripMenuItemScale125";
-            this.toolStripMenuItemScale125.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale125.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale125.Text = "125%";
             this.toolStripMenuItemScale125.Click += new System.EventHandler(this.toolStripMenuItemScale125_Click);
             // 
             // toolStripMenuItemScale150
             // 
             this.toolStripMenuItemScale150.Name = "toolStripMenuItemScale150";
-            this.toolStripMenuItemScale150.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale150.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale150.Text = "150%";
             this.toolStripMenuItemScale150.Click += new System.EventHandler(this.toolStripMenuItemScale150_Click);
             // 
             // toolStripMenuItemScale200
             // 
             this.toolStripMenuItemScale200.Name = "toolStripMenuItemScale200";
-            this.toolStripMenuItemScale200.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale200.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale200.Text = "200%";
             this.toolStripMenuItemScale200.Click += new System.EventHandler(this.toolStripMenuItemScale200_Click);
             // 
             // toolStripMenuItemScale300
             // 
             this.toolStripMenuItemScale300.Name = "toolStripMenuItemScale300";
-            this.toolStripMenuItemScale300.Size = new System.Drawing.Size(102, 22);
+            this.toolStripMenuItemScale300.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItemScale300.Text = "300%";
             this.toolStripMenuItemScale300.Click += new System.EventHandler(this.toolStripMenuItemScale300_Click);
             // 
@@ -167,7 +169,7 @@
             this.toolStripButtonUpscale.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUpscale.Image")));
             this.toolStripButtonUpscale.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUpscale.Name = "toolStripButtonUpscale";
-            this.toolStripButtonUpscale.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonUpscale.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonUpscale.Text = "Увеличить (Alt + Mousewheel)";
             this.toolStripButtonUpscale.Click += new System.EventHandler(this.toolStripButtonUpscale_Click);
             // 
@@ -177,14 +179,14 @@
             this.toolStripButtonDownScale.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDownScale.Image")));
             this.toolStripButtonDownScale.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDownScale.Name = "toolStripButtonDownScale";
-            this.toolStripButtonDownScale.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonDownScale.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonDownScale.Text = "Уменьшить (Alt + Mousewheel)";
             this.toolStripButtonDownScale.Click += new System.EventHandler(this.toolStripButtonDownScale_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripButtonUndo
             // 
@@ -192,7 +194,7 @@
             this.toolStripButtonUndo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUndo.Image")));
             this.toolStripButtonUndo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUndo.Name = "toolStripButtonUndo";
-            this.toolStripButtonUndo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonUndo.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonUndo.Text = "Отменить (Ctrl + Z)";
             this.toolStripButtonUndo.Click += new System.EventHandler(this.toolStripButtonUndo_Click);
             // 
@@ -202,34 +204,38 @@
             this.toolStripButtonRedo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRedo.Image")));
             this.toolStripButtonRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRedo.Name = "toolStripButtonRedo";
-            this.toolStripButtonRedo.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonRedo.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonRedo.Text = "Вернуть (Ctrl + Y)";
             this.toolStripButtonRedo.Click += new System.EventHandler(this.toolStripButtonRedo_Click);
             // 
             // statusStrip
             // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripScaleLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 600);
+            this.statusStrip.Location = new System.Drawing.Point(0, 740);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1012, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1349, 26);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
             // 
             // toolStripScaleLabel
             // 
             this.toolStripScaleLabel.Name = "toolStripScaleLabel";
-            this.toolStripScaleLabel.Size = new System.Drawing.Size(118, 17);
+            this.toolStripScaleLabel.Size = new System.Drawing.Size(151, 20);
             this.toolStripScaleLabel.Text = "toolStripStatusLabel1";
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.видToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1012, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1349, 28);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -239,21 +245,21 @@
             this.сохранитьToolStripMenuItem,
             this.переименоватьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // переименоватьToolStripMenuItem
             // 
             this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
-            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
             this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
             // 
@@ -262,7 +268,7 @@
             this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сеткаToolStripMenuItem});
             this.видToolStripMenuItem.Name = "видToolStripMenuItem";
-            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.видToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.видToolStripMenuItem.Text = "Вид";
             // 
             // сеткаToolStripMenuItem
@@ -270,25 +276,27 @@
             this.сеткаToolStripMenuItem.Name = "сеткаToolStripMenuItem";
             this.сеткаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.G)));
-            this.сеткаToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.сеткаToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.сеткаToolStripMenuItem.Text = "Сетка";
             this.сеткаToolStripMenuItem.Click += new System.EventHandler(this.сеткаToolStripMenuItem_Click);
             // 
             // overviewControl
             // 
             this.overviewControl.BackColor = System.Drawing.Color.White;
-            this.overviewControl.Location = new System.Drawing.Point(12, 52);
+            this.overviewControl.Location = new System.Drawing.Point(16, 64);
+            this.overviewControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.overviewControl.Name = "overviewControl";
-            this.overviewControl.Size = new System.Drawing.Size(178, 178);
+            this.overviewControl.Size = new System.Drawing.Size(237, 219);
             this.overviewControl.TabIndex = 4;
             // 
             // buttonAddEntity
             // 
             this.buttonAddEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddEntity.AutoSize = true;
-            this.buttonAddEntity.Location = new System.Drawing.Point(831, 52);
+            this.buttonAddEntity.Location = new System.Drawing.Point(1108, 64);
+            this.buttonAddEntity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddEntity.Name = "buttonAddEntity";
-            this.buttonAddEntity.Size = new System.Drawing.Size(169, 23);
+            this.buttonAddEntity.Size = new System.Drawing.Size(225, 28);
             this.buttonAddEntity.TabIndex = 5;
             this.buttonAddEntity.Text = "+ Новая сущность";
             this.buttonAddEntity.UseVisualStyleBackColor = true;
@@ -296,9 +304,9 @@
             // 
             // Editor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 622);
+            this.ClientSize = new System.Drawing.Size(1349, 766);
             this.Controls.Add(this.buttonAddEntity);
             this.Controls.Add(this.overviewControl);
             this.Controls.Add(this.statusStrip);
@@ -306,6 +314,7 @@
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.diagramControl);
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Editor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

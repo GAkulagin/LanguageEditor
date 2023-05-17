@@ -5,15 +5,11 @@ namespace LanguageEditor.Models
     public class Attribute
     {
         private dynamic _value;
-
         private Type _type;
 
         public long Key { get; set; }
-
         public string Name { get; set; }
-
         public bool IsValueUnique { get; set; }
-
         public dynamic Value
         {
             get { return _value; }
@@ -26,32 +22,29 @@ namespace LanguageEditor.Models
                     );
             }
         }
-
-        public Type Type
-        {
-            get { return _type; }
-            set
-            {
-                _type = value;
-
-                if (value.IsValueType) _value = Activator.CreateInstance(value);
-                else if (value.GetType() == typeof(string)) _value = "";
-                else _value = null;
-            }
-        }
-
-        // отображение типа данных в таблицах
         public string TypeName
         {
-            get
+            get { return _type.FullName; }
+            set
             {
-                if (AllowedTypes.TypeNames.ContainsKey(Type))
-                    return AllowedTypes.TypeNames[Type];
-                else
-                    return "";
+                try
+                {
+                    _type = Type.GetType(value);
+
+                    if (_type.IsValueType) _value = Activator.CreateInstance(_type);
+                    else if (_type == typeof(string)) _value = "";
+                    else _value = null;
+                }
+                catch(Exception e)
+                {
+                    _type = typeof(object);
+                    _value = null;
+                }
             }
         }
 
+
+        public Attribute() { }
 
         public Attribute(Type type)
         {
@@ -59,7 +52,7 @@ namespace LanguageEditor.Models
 
             Name = "Attribute" + Key;
             IsValueUnique = false;
-            Type = type;
+            TypeName = type.FullName;
         }
     }
 }

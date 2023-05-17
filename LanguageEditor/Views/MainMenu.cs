@@ -2,12 +2,6 @@
 using LanguageEditor.RepositoryClasses;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LanguageEditor.Views
@@ -114,14 +108,14 @@ namespace LanguageEditor.Views
 
         private void CreateMetamodelBtn_Click(object sender, EventArgs e)
         {
-            Editor editorForm = new Editor(ModelData.GetFooModel());
+            Editor editorForm = new Editor(DiagramModel.GetFooModel());
             editorForm.Show();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
             // load repository files data
-            _metamodels = RepoWorker.GetModelFiles();
+            _metamodels = FileExtractor.GetModelFiles();
             SetListViewItems(metamodelsListView, _metamodels);
 
             // load id automatic counters

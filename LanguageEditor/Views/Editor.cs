@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using LanguageEditor.Models;
+using LanguageEditor.RepositoryClasses;
 
 namespace LanguageEditor.Views
 {
@@ -10,7 +11,7 @@ namespace LanguageEditor.Views
         private Diagram _canvas;
         private Overview _overview;
 
-        public Editor(ModelData model)
+        public Editor(DiagramModel model)
         {
             InitializeComponent();
 
@@ -64,7 +65,7 @@ namespace LanguageEditor.Views
         {
             _canvas.Model.Commit(m =>
             {
-                var node = ((ModelData)_canvas.Model).Entities.Find(e => e.Key == key);
+                var node = ((DiagramModel)_canvas.Model).Data.Entities.Find(e => e.Key == key);
                 
                 m.Set(node, "Name", "human11111");
             }, "OnEntityChange");
@@ -133,7 +134,9 @@ namespace LanguageEditor.Views
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IPackager packager = XmlPackager.CreateInstance();
 
+            packager.Pack((DiagramModel)_canvas.Model, "sample.xml");
         }
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,7 +151,7 @@ namespace LanguageEditor.Views
 
         private void buttonAddEntity_Click(object sender, EventArgs e)
         {
-            EntityEdit form = new EntityEdit(((ModelData)_canvas.Model).Entities[0]);
+            EntityEdit form = new EntityEdit(((DiagramModel)_canvas.Model).Data.Entities[0]);
             form.Show();
         }
     }

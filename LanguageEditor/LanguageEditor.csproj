@@ -153,6 +153,7 @@
     <Compile Include="AllowedTypes.cs" />
     <Compile Include="IdSetter.cs" />
     <Compile Include="Models\Attribute.cs" />
+    <Compile Include="Models\DiagramModel.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Hyperedge.cs" />
     <Compile Include="Models\IAttributedElement.cs" />
@@ -160,10 +161,12 @@
     <Compile Include="Models\ModelData.cs" />
     <Compile Include="Models\Pole.cs" />
     <Compile Include="Models\Relation.cs" />
+    <Compile Include="RepositoryClasses\IPackager.cs" />
     <Compile Include="RepositoryClasses\ModelFile.cs" />
-    <Compile Include="RepositoryClasses\RepoWorker.cs" />
+    <Compile Include="RepositoryClasses\FileExtractor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryClasses\XmlPackager.cs" />
     <Compile Include="Views\Editor.cs">
       <SubType>Form</SubType>
     </Compile>

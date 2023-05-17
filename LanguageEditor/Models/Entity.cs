@@ -3,7 +3,7 @@
 
 namespace LanguageEditor.Models
 {
-    public class Entity : ModelData.NodeData, IAttributedElement, IPoledElement
+    public class Entity : DiagramModel.NodeData, IAttributedElement, IPoledElement
     {
         public string Name { get; set; }
         public bool IsAbstract { get; set; }
@@ -11,8 +11,8 @@ namespace LanguageEditor.Models
         public int MaxCount { get; set; }
         public Entity Ancestor { get; set; }
 
-        public List<Pole> Poles { get; }
-        public List<Attribute> Attributes { get; }
+        public List<Pole> Poles { get; set; }
+        public List<Attribute> Attributes { get; set; }
 
         public delegate void ChangeHandler(long key);
         public static event ChangeHandler EntityChanged;

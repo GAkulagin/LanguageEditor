@@ -1,19 +1,13 @@
-﻿using LanguageEditor.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace LanguageEditor.RepositoryClasses
 {
-    internal static class RepoWorker
+    internal static class FileExtractor
     {
-        private static string _repoPath = @"C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\projects";
-        
+        private static string _repoPath = @"C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\projects";       
 
 
         public static List<ModelFile> GetModelFiles()
@@ -45,7 +39,5 @@ namespace LanguageEditor.RepositoryClasses
 
             return metamodels;
         }
-
-
     }
 }

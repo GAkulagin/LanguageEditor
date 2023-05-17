@@ -8,6 +8,6 @@ namespace LanguageEditor.Models
 {
     public interface IAttributedElement
     {
-        List<Attribute> Attributes { get; }
+        List<Attribute> Attributes { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace LanguageEditor.Models
 {
     public interface IPoledElement
     {
-        List<Pole> Poles { get; }
+        List<Pole> Poles { get; set; }
     }
 }
