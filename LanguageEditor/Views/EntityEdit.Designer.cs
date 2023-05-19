@@ -48,52 +48,58 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Имя*:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Location = new System.Drawing.Point(16, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Абстрактная:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 110);
+            this.label3.Location = new System.Drawing.Point(16, 135);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 13);
+            this.label3.Size = new System.Drawing.Size(181, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Макс. число экземпляров:";
             // 
             // numericUpDownMaxCount
             // 
-            this.numericUpDownMaxCount.Location = new System.Drawing.Point(246, 110);
+            this.numericUpDownMaxCount.Location = new System.Drawing.Point(328, 135);
+            this.numericUpDownMaxCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericUpDownMaxCount.Name = "numericUpDownMaxCount";
-            this.numericUpDownMaxCount.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDownMaxCount.Size = new System.Drawing.Size(73, 22);
             this.numericUpDownMaxCount.TabIndex = 3;
             // 
             // checkBoxIsAbstract
             // 
             this.checkBoxIsAbstract.AutoSize = true;
-            this.checkBoxIsAbstract.Location = new System.Drawing.Point(246, 44);
+            this.checkBoxIsAbstract.Location = new System.Drawing.Point(328, 54);
+            this.checkBoxIsAbstract.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxIsAbstract.Name = "checkBoxIsAbstract";
-            this.checkBoxIsAbstract.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxIsAbstract.Size = new System.Drawing.Size(18, 17);
             this.checkBoxIsAbstract.TabIndex = 4;
             this.checkBoxIsAbstract.UseVisualStyleBackColor = true;
             this.checkBoxIsAbstract.CheckedChanged += new System.EventHandler(this.checkBoxIsAbstract_CheckedChanged);
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(246, 12);
+            this.textBoxName.Location = new System.Drawing.Point(328, 15);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(196, 20);
+            this.textBoxName.Size = new System.Drawing.Size(260, 22);
             this.textBoxName.TabIndex = 5;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
@@ -101,9 +107,10 @@
             // 
             this.labelNameInvalidMsg.AutoSize = true;
             this.labelNameInvalidMsg.ForeColor = System.Drawing.Color.Red;
-            this.labelNameInvalidMsg.Location = new System.Drawing.Point(319, 35);
+            this.labelNameInvalidMsg.Location = new System.Drawing.Point(425, 43);
+            this.labelNameInvalidMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNameInvalidMsg.Name = "labelNameInvalidMsg";
-            this.labelNameInvalidMsg.Size = new System.Drawing.Size(123, 13);
+            this.labelNameInvalidMsg.Size = new System.Drawing.Size(160, 17);
             this.labelNameInvalidMsg.TabIndex = 6;
             this.labelNameInvalidMsg.Text = "Это поле обязательно!";
             this.labelNameInvalidMsg.Visible = false;
@@ -111,27 +118,30 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 74);
+            this.label5.Location = new System.Drawing.Point(17, 91);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(201, 13);
+            this.label5.Size = new System.Drawing.Size(257, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Ограничить макс. число экземпляров";
             // 
             // checkBoxCanSetMaxCount
             // 
             this.checkBoxCanSetMaxCount.AutoSize = true;
-            this.checkBoxCanSetMaxCount.Location = new System.Drawing.Point(246, 73);
+            this.checkBoxCanSetMaxCount.Location = new System.Drawing.Point(328, 90);
+            this.checkBoxCanSetMaxCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxCanSetMaxCount.Name = "checkBoxCanSetMaxCount";
-            this.checkBoxCanSetMaxCount.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxCanSetMaxCount.Size = new System.Drawing.Size(18, 17);
             this.checkBoxCanSetMaxCount.TabIndex = 8;
             this.checkBoxCanSetMaxCount.UseVisualStyleBackColor = true;
             this.checkBoxCanSetMaxCount.CheckedChanged += new System.EventHandler(this.checkBoxCanSetMaxCount_CheckedChanged);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 415);
+            this.buttonSave.Location = new System.Drawing.Point(16, 511);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(100, 28);
             this.buttonSave.TabIndex = 9;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -140,16 +150,19 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 164);
+            this.dataGridView.Location = new System.Drawing.Point(16, 202);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(430, 150);
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.Size = new System.Drawing.Size(573, 185);
             this.dataGridView.TabIndex = 10;
             // 
             // buttonDeleteAttribute
             // 
-            this.buttonDeleteAttribute.Location = new System.Drawing.Point(367, 320);
+            this.buttonDeleteAttribute.Location = new System.Drawing.Point(489, 394);
+            this.buttonDeleteAttribute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDeleteAttribute.Name = "buttonDeleteAttribute";
-            this.buttonDeleteAttribute.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteAttribute.Size = new System.Drawing.Size(100, 28);
             this.buttonDeleteAttribute.TabIndex = 11;
             this.buttonDeleteAttribute.Text = "Удалить";
             this.buttonDeleteAttribute.UseVisualStyleBackColor = true;
@@ -157,9 +170,10 @@
             // 
             // buttonAddAttribute
             // 
-            this.buttonAddAttribute.Location = new System.Drawing.Point(276, 320);
+            this.buttonAddAttribute.Location = new System.Drawing.Point(368, 394);
+            this.buttonAddAttribute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddAttribute.Name = "buttonAddAttribute";
-            this.buttonAddAttribute.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddAttribute.Size = new System.Drawing.Size(100, 28);
             this.buttonAddAttribute.TabIndex = 12;
             this.buttonAddAttribute.Text = "Добавить";
             this.buttonAddAttribute.UseVisualStyleBackColor = true;
@@ -167,9 +181,9 @@
             // 
             // EntityEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 450);
+            this.ClientSize = new System.Drawing.Size(609, 554);
             this.Controls.Add(this.buttonAddAttribute);
             this.Controls.Add(this.buttonDeleteAttribute);
             this.Controls.Add(this.dataGridView);
@@ -183,6 +197,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "EntityEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

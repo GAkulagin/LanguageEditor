@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace LanguageEditor.Models
 {
@@ -43,8 +45,10 @@ namespace LanguageEditor.Models
             }
         }
 
+        public Attribute()
+        {
 
-        public Attribute() { }
+        }
 
         public Attribute(Type type)
         {

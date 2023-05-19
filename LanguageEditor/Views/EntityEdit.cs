@@ -8,13 +8,15 @@ namespace LanguageEditor.Views
     public partial class EntityEdit : Form
     {
         private Entity _entity;
-        
+        private BindingList<Models.Attribute> _bindingList;
 
         public EntityEdit(Entity e)
         {
             InitializeComponent();
 
             _entity = e;
+            _bindingList = new BindingList<Models.Attribute>(_entity.Attributes);
+            _bindingList.AllowNew = false;
 
             ControlsSetup();
             DataGridSetup();
@@ -33,22 +35,31 @@ namespace LanguageEditor.Views
 
         private void DataGridSetup()
         {
-            dataGridView.DataSource = new BindingList<Models.Attribute>(_entity.Attributes);
-            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.DataSource = _bindingList;
             dataGridView.AutoResizeColumns();
 
-            if (dataGridView.Columns["Name"] != null) dataGridView.Columns["Name"].HeaderText = "Имя";
-            if (dataGridView.Columns["TypeName"] != null) dataGridView.Columns["TypeName"].HeaderText = "Тип";
-            if (dataGridView.Columns["IsValueUnique"] != null) dataGridView.Columns["IsValueUnique"].HeaderText = "Уникальный";
+            dataGridView.Columns["Name"].HeaderText = "Имя";
+            dataGridView.Columns["IsValueUnique"].HeaderText = "Уникальный";
 
-            if (dataGridView.Columns["Key"] != null) dataGridView.Columns["Key"].Visible = false;
-            if (dataGridView.Columns["Value"] != null) dataGridView.Columns["Value"].Visible = false;
+            dataGridView.Columns["Key"].Visible = false;
+            dataGridView.Columns["Value"].Visible = false;
 
-            if (dataGridView.Columns["Name"] != null) dataGridView.Columns["Name"].DisplayIndex = 0;
-            if (dataGridView.Columns["TypeName"] != null) dataGridView.Columns["TypeName"].DisplayIndex = 1;
-            if (dataGridView.Columns["IsValueUnique"] != null) dataGridView.Columns["IsValueUnique"].DisplayIndex = 2;
+            dataGridView.Columns["Name"].DisplayIndex = 0;
+            dataGridView.Columns["TypeName"].DisplayIndex = 1;
+            dataGridView.Columns["IsValueUnique"].DisplayIndex = 2;
+
+            dataGridView.Columns["TypeName"].ReadOnly = true;
         }
 
+        private void SaveEntity()
+        {
+            _entity.Name = textBoxName.Text;
+            _entity.MaxCount = (int)numericUpDownMaxCount.Value;
+            _entity.IsAbstract = checkBoxIsAbstract.Checked;
+            _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
+
+            Entity.kjojjojoj(_entity);
+        }
 
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
@@ -97,19 +108,19 @@ namespace LanguageEditor.Views
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            _entity.Name = textBoxName.Text;
-            _entity.MaxCount = (int)numericUpDownMaxCount.Value;
-            _entity.IsAbstract = checkBoxIsAbstract.Checked;
-            _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
-
+            SaveEntity();
             Close();
-
-            Entity.kjojjojoj(_entity);
         }
 
         private void buttonAddAttribute_Click(object sender, EventArgs e)
         {
             if (dataGridView.CurrentRow == null) return;
+
+            Models.Attribute attr = new Models.Attribute(typeof(string));
+            _bindingList.Add(attr);
+
+            Form form = new AttributeTypeSelect(attr);
+            form.Show();
         }
 
         private void buttonDeleteAttribute_Click(object sender, EventArgs e)
@@ -123,7 +134,7 @@ namespace LanguageEditor.Views
 
             if(dlg == DialogResult.OK)
             {
-                _entity.Attributes.RemoveAt(dataGridView.CurrentRow.Index);
+                _bindingList.RemoveAt(dataGridView.CurrentRow.Index);
             }
         }
     }
