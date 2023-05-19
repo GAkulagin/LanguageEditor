@@ -3,6 +3,7 @@ using LanguageEditor.RepositoryClasses;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Northwoods.Go.Extensions;
 
 namespace LanguageEditor.Views
 {
@@ -14,14 +15,15 @@ namespace LanguageEditor.Views
         {
             InitializeComponent();
 
+            Figures.DefineExtraFigures();
         }
 
 
         private void SetListViewItems(ListView view, List<ModelFile> models)
         {
-            foreach(ModelFile model in models)
+            foreach(var model in models)
             {
-                ListViewItem item = new ListViewItem();
+                var item = new ListViewItem();
                 item.Text = model.Name;
                 item.ImageIndex = 0;
 
@@ -108,7 +110,7 @@ namespace LanguageEditor.Views
 
         private void CreateMetamodelBtn_Click(object sender, EventArgs e)
         {
-            Editor editorForm = new Editor(DiagramModel.GetFooModel());
+            Editor editorForm = new Editor(DiagramModel.GetPredefinedFigures(), EditorMode.Modeling);
             editorForm.Show();
         }
 

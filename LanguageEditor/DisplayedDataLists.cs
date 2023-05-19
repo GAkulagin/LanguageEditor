@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LanguageEditor
 {
@@ -28,11 +25,21 @@ namespace LanguageEditor
             "Rectangle",
             "RoundedRectangle",
             "FramedRectangle",
-            "Procedure",
+            "Parallelogram",
+            "Trapezoid",
             "Square",
             "Circle",
             "Ellipse",
             "Triangle",
+            "TriangleRight",
+            "TriangleLeft",
+            "TriangleDown",
+            "Diamond",
+            "Pentagon",
+            "Hexagon",
+            "Heptagon",
+            "Octagon",
+            "Procedure",
             "Cloud"
         };
 
@@ -44,6 +51,11 @@ namespace LanguageEditor
         public static Dictionary<string, string> FullTypenames
         {
             get { return _types; }
+        }
+
+        public static List<string> Figures
+        {
+            get { return _figures; }
         }
     }
 }

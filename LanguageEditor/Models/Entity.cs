@@ -11,6 +11,8 @@ namespace LanguageEditor.Models
         public int MaxCount { get; set; }
         public Entity Ancestor { get; set; }
 
+        public string Figure { get; set; }
+
         public List<Pole> Poles { get; set; }
         public List<Attribute> Attributes { get; set; }
 
@@ -28,9 +30,10 @@ namespace LanguageEditor.Models
             Ancestor = null;
             Poles = new List<Pole>();
             Attributes = new List<Attribute>();
+            Figure = "Rectangle";
         }
 
-        public static void kjojjojoj(Entity e)
+        public static void UpdateEntityView(Entity e)
         {
             Entity.EntityChanged?.Invoke(e.Key);
         }

@@ -50,5 +50,19 @@ namespace LanguageEditor.Models
 
             return dmodel;
         }
+
+        public static DiagramModel GetPredefinedFigures()
+        {
+            ModelData model = new ModelData();
+            model.Name = "predefined figures";
+
+            foreach (string fig in DisplayedDataLists.Figures)
+                model.Entities.Add(new Entity() { Figure = fig });
+
+            DiagramModel dmodel = new DiagramModel(model);
+            dmodel.NodeDataSource = model.Entities;
+
+            return dmodel;
+        }
     }
 }

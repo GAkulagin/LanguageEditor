@@ -152,6 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DisplayedDataLists.cs" />
+    <Compile Include="EditorMode.cs" />
+    <Compile Include="ElementTemplates\ITemplate.cs" />
+    <Compile Include="ElementTemplates\ModelEntityTemplate.cs" />
+    <Compile Include="Figures.cs" />
     <Compile Include="IdSetter.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\DiagramModel.cs" />

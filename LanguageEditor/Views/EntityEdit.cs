@@ -58,7 +58,7 @@ namespace LanguageEditor.Views
             _entity.IsAbstract = checkBoxIsAbstract.Checked;
             _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
 
-            Entity.kjojjojoj(_entity);
+            Entity.UpdateEntityView(_entity);
         }
 
 

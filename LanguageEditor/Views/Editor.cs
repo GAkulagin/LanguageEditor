@@ -3,6 +3,8 @@ using System;
 using System.Windows.Forms;
 using LanguageEditor.Models;
 using LanguageEditor.RepositoryClasses;
+using LanguageEditor.ElementTemplates;
+
 
 namespace LanguageEditor.Views
 {
@@ -11,18 +13,23 @@ namespace LanguageEditor.Views
         private Diagram _canvas;
         private Overview _overview;
 
-        public Editor(DiagramModel model)
+        public Editor(DiagramModel model, EditorMode mode)
         {
             InitializeComponent();
 
             Text = model.Name;
 
-
             _canvas = diagramControl.Diagram;
 
             DiagramSetup();
             OverviewSetup();
-            NodeTemplateSetup();
+
+            switch (mode)
+            {
+                case EditorMode.Metamodeling: MetamodelingSetup(); break;
+                case EditorMode.Modeling: ModelingSetup(); break;
+                default: MetamodelingSetup(); break;
+            }
 
             _canvas.Model = model;
 
@@ -50,15 +57,15 @@ namespace LanguageEditor.Views
             _overview.DrawsTemporaryLayers = false;
         }
 
-        private void NodeTemplateSetup()
+        private void MetamodelingSetup()
         {
-            _canvas.NodeTemplate =
-                new Node("Auto")
-                  .Add(
-                    new Shape("RoundedRectangle") { Fill = "lightblue" },
-                    new TextBlock { Margin = 3 }
-                    .Bind("Text", "Name")
-                    );
+
+        }
+
+        private void ModelingSetup()
+        {
+            var template = new ModelEntityTemplate();
+            _canvas.NodeTemplate = template.GetTemplate();
         }
 
         private void OnEntityChange(long key)

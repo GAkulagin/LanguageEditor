@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             this.diagramControl = new Northwoods.Go.WinForms.DiagramControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -53,8 +54,9 @@
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сеткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.overviewControl = new Northwoods.Go.WinForms.OverviewControl();
             this.buttonAddEntity = new System.Windows.Forms.Button();
+            this.overviewControl = new Northwoods.Go.WinForms.OverviewControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -66,10 +68,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.diagramControl.BackColor = System.Drawing.Color.White;
-            this.diagramControl.Location = new System.Drawing.Point(261, 34);
-            this.diagramControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diagramControl.Location = new System.Drawing.Point(310, 59);
+            this.diagramControl.Margin = new System.Windows.Forms.Padding(4);
             this.diagramControl.Name = "diagramControl";
-            this.diagramControl.Size = new System.Drawing.Size(815, 700);
+            this.diagramControl.Size = new System.Drawing.Size(1039, 779);
             this.diagramControl.TabIndex = 0;
             // 
             // toolStrip1
@@ -110,56 +112,56 @@
             // toolStripMenuItemScale25
             // 
             this.toolStripMenuItemScale25.Name = "toolStripMenuItemScale25";
-            this.toolStripMenuItemScale25.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale25.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale25.Text = "25%";
             this.toolStripMenuItemScale25.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItemScale50
             // 
             this.toolStripMenuItemScale50.Name = "toolStripMenuItemScale50";
-            this.toolStripMenuItemScale50.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale50.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale50.Text = "50%";
             this.toolStripMenuItemScale50.Click += new System.EventHandler(this.toolStripMenuItemScale50_Click);
             // 
             // toolStripMenuItemScale75
             // 
             this.toolStripMenuItemScale75.Name = "toolStripMenuItemScale75";
-            this.toolStripMenuItemScale75.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale75.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale75.Text = "75%";
             this.toolStripMenuItemScale75.Click += new System.EventHandler(this.toolStripMenuItemScale75_Click);
             // 
             // toolStripMenuItemScale100
             // 
             this.toolStripMenuItemScale100.Name = "toolStripMenuItemScale100";
-            this.toolStripMenuItemScale100.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale100.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale100.Text = "100%";
             this.toolStripMenuItemScale100.Click += new System.EventHandler(this.toolStripMenuItemScale100_Click);
             // 
             // toolStripMenuItemScale125
             // 
             this.toolStripMenuItemScale125.Name = "toolStripMenuItemScale125";
-            this.toolStripMenuItemScale125.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale125.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale125.Text = "125%";
             this.toolStripMenuItemScale125.Click += new System.EventHandler(this.toolStripMenuItemScale125_Click);
             // 
             // toolStripMenuItemScale150
             // 
             this.toolStripMenuItemScale150.Name = "toolStripMenuItemScale150";
-            this.toolStripMenuItemScale150.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale150.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale150.Text = "150%";
             this.toolStripMenuItemScale150.Click += new System.EventHandler(this.toolStripMenuItemScale150_Click);
             // 
             // toolStripMenuItemScale200
             // 
             this.toolStripMenuItemScale200.Name = "toolStripMenuItemScale200";
-            this.toolStripMenuItemScale200.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale200.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale200.Text = "200%";
             this.toolStripMenuItemScale200.Click += new System.EventHandler(this.toolStripMenuItemScale200_Click);
             // 
             // toolStripMenuItemScale300
             // 
             this.toolStripMenuItemScale300.Name = "toolStripMenuItemScale300";
-            this.toolStripMenuItemScale300.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItemScale300.Size = new System.Drawing.Size(128, 26);
             this.toolStripMenuItemScale300.Text = "300%";
             this.toolStripMenuItemScale300.Click += new System.EventHandler(this.toolStripMenuItemScale300_Click);
             // 
@@ -213,7 +215,7 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripScaleLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 740);
+            this.statusStrip.Location = new System.Drawing.Point(0, 812);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.statusStrip.Size = new System.Drawing.Size(1349, 26);
@@ -234,7 +236,6 @@
             this.видToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip.Size = new System.Drawing.Size(1349, 28);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
@@ -252,14 +253,14 @@
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // переименоватьToolStripMenuItem
             // 
             this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
-            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
             this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
             // 
@@ -280,41 +281,47 @@
             this.сеткаToolStripMenuItem.Text = "Сетка";
             this.сеткаToolStripMenuItem.Click += new System.EventHandler(this.сеткаToolStripMenuItem_Click);
             // 
-            // overviewControl
-            // 
-            this.overviewControl.BackColor = System.Drawing.Color.White;
-            this.overviewControl.Location = new System.Drawing.Point(16, 64);
-            this.overviewControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.overviewControl.Name = "overviewControl";
-            this.overviewControl.Size = new System.Drawing.Size(237, 219);
-            this.overviewControl.TabIndex = 4;
-            // 
             // buttonAddEntity
             // 
-            this.buttonAddEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAddEntity.AutoSize = true;
-            this.buttonAddEntity.Location = new System.Drawing.Point(1108, 64);
-            this.buttonAddEntity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddEntity.Location = new System.Drawing.Point(13, 780);
+            this.buttonAddEntity.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddEntity.Name = "buttonAddEntity";
-            this.buttonAddEntity.Size = new System.Drawing.Size(225, 28);
+            this.buttonAddEntity.Size = new System.Drawing.Size(137, 28);
             this.buttonAddEntity.TabIndex = 5;
             this.buttonAddEntity.Text = "+ Новая сущность";
             this.buttonAddEntity.UseVisualStyleBackColor = true;
             this.buttonAddEntity.Click += new System.EventHandler(this.buttonAddEntity_Click);
             // 
+            // overviewControl
+            // 
+            this.overviewControl.BackColor = System.Drawing.Color.White;
+            this.overviewControl.Location = new System.Drawing.Point(0, 59);
+            this.overviewControl.Margin = new System.Windows.Forms.Padding(4);
+            this.overviewControl.Name = "overviewControl";
+            this.overviewControl.Size = new System.Drawing.Size(302, 173);
+            this.overviewControl.TabIndex = 4;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 766);
-            this.Controls.Add(this.buttonAddEntity);
+            this.ClientSize = new System.Drawing.Size(1349, 838);
             this.Controls.Add(this.overviewControl);
+            this.Controls.Add(this.buttonAddEntity);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.diagramControl);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Editor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -355,7 +362,8 @@
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сеткаToolStripMenuItem;
-        private Northwoods.Go.WinForms.OverviewControl overviewControl;
         private System.Windows.Forms.Button buttonAddEntity;
+        private Northwoods.Go.WinForms.OverviewControl overviewControl;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
