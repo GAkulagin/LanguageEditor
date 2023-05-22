@@ -31,11 +31,12 @@ namespace LanguageEditor.ElementTemplates
                 .Add(
                     new Shape()
                     {
-                        Fill = "lightgray",
                         Name = "Shape",
                         MinSize = new Size(20, 20)
                     }
                     .Bind("Figure")
+                    .Bind("Fill", "FillColor")
+                    .Bind("Stroke", "BorderColor")
                     );
         }
     }

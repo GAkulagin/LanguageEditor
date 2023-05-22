@@ -2,21 +2,29 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using LanguageEditor.Models;
+using System.Drawing;
+using Attribute = LanguageEditor.Models.Attribute;
 
 namespace LanguageEditor.Views
 {
     public partial class EntityEdit : Form
     {
         private Entity _entity;
-        private BindingList<Models.Attribute> _bindingList;
+        private BindingList<Attribute> _bindingList;
+        private Changelog _changelog;
+
+        public BindingList<Attribute> Attributes => _bindingList;
 
         public EntityEdit(Entity e)
         {
             InitializeComponent();
 
             _entity = e;
-            _bindingList = new BindingList<Models.Attribute>(_entity.Attributes);
-            _bindingList.AllowNew = false;
+            _bindingList = new BindingList<Attribute>(_entity.Attributes)
+            {
+                AllowNew = false
+            };
+            _changelog = new Changelog();
 
             ControlsSetup();
             DataGridSetup();
@@ -31,6 +39,12 @@ namespace LanguageEditor.Views
             numericUpDownMaxCount.Value = _entity.MaxCount;
             if (!_entity.CanSetMaxCount)
                 numericUpDownMaxCount.Enabled = false;
+            
+            ShapesImageListSetup();
+
+            panelFillColor.BackColor = Color.LightGray;
+            panelStrokeColor.BackColor = Color.Black;
+            colorDialog.Color = Color.LightGray;
         }
 
         private void DataGridSetup()
@@ -51,6 +65,20 @@ namespace LanguageEditor.Views
             dataGridView.Columns["TypeName"].ReadOnly = true;
         }
 
+        private void ShapesImageListSetup()
+        {
+            int imageIndex = 0;
+            foreach (var kvp in DisplayedDataLists.Figures)
+            {
+                listViewShape.Items.Add(new ListViewItem()
+                {
+                    Tag = kvp.Key,
+                    Text = kvp.Value,
+                    ImageIndex = imageIndex
+                });
+                imageIndex++;
+            }
+        }
         private void SaveEntity()
         {
             _entity.Name = textBoxName.Text;
@@ -58,9 +86,13 @@ namespace LanguageEditor.Views
             _entity.IsAbstract = checkBoxIsAbstract.Checked;
             _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
 
-            Entity.UpdateEntityView(_entity);
-        }
+            var newfigure = listViewShape.Items[0].Tag.ToString();
+            if (listViewShape.SelectedItems.Count > 0) newfigure = listViewShape.SelectedItems[0].Tag.ToString();
 
+            _changelog.Add("Figure", newfigure);
+
+            Entity.UpdateEntityView(_entity, _changelog);
+        }
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
@@ -89,7 +121,6 @@ namespace LanguageEditor.Views
             {
                 checkBoxCanSetMaxCount.Enabled = true;
                 checkBoxCanSetMaxCount.Checked = false;
-
             }
         }
 
@@ -114,12 +145,7 @@ namespace LanguageEditor.Views
 
         private void buttonAddAttribute_Click(object sender, EventArgs e)
         {
-            if (dataGridView.CurrentRow == null) return;
-
-            Models.Attribute attr = new Models.Attribute(typeof(string));
-            _bindingList.Add(attr);
-
-            Form form = new AttributeTypeSelect(attr);
+            var form = new AttributeTypeSelect(this);
             form.Show();
         }
 
@@ -136,6 +162,28 @@ namespace LanguageEditor.Views
             {
                 _bindingList.RemoveAt(dataGridView.CurrentRow.Index);
             }
+        }
+
+        private void buttonFillColorDialog_Click(object sender, EventArgs e)
+        {
+            colorDialog.Color = panelFillColor.BackColor;
+
+            if (colorDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            panelFillColor.BackColor = colorDialog.Color;
+            _changelog.Add("FillColor", ColorTranslator.ToHtml(colorDialog.Color));
+        }
+
+        private void buttonBorderColorDialog_Click(object sender, EventArgs e)
+        {
+            colorDialog.Color = panelStrokeColor.BackColor;
+
+            if (colorDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            panelStrokeColor.BackColor = colorDialog.Color;
+            _changelog.Add("BorderColor", ColorTranslator.ToHtml(colorDialog.Color));
         }
     }
 }

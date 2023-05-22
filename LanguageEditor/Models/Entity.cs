@@ -12,11 +12,13 @@ namespace LanguageEditor.Models
         public Entity Ancestor { get; set; }
 
         public string Figure { get; set; }
+        public string FillColor { get; set; }
+        public string BorderColor { get; set; }
 
         public List<Pole> Poles { get; set; }
         public List<Attribute> Attributes { get; set; }
 
-        public delegate void ChangeHandler(long key);
+        public delegate void ChangeHandler(long key, Changelog changelog);
         public static event ChangeHandler EntityChanged;
 
         public Entity()
@@ -31,11 +33,13 @@ namespace LanguageEditor.Models
             Poles = new List<Pole>();
             Attributes = new List<Attribute>();
             Figure = "Rectangle";
+            FillColor = "#D3D3D3";
+            BorderColor = "#000000";
         }
 
-        public static void UpdateEntityView(Entity e)
+        public static void UpdateEntityView(Entity e, Changelog changelog)
         {
-            Entity.EntityChanged?.Invoke(e.Key);
+            Entity.EntityChanged?.Invoke(e.Key, changelog);
         }
     }
 }

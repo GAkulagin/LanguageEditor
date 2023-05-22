@@ -1,4 +1,5 @@
 ﻿using Northwoods.Go;
+using Northwoods.Go.Models;
 using System;
 using System.Windows.Forms;
 using LanguageEditor.Models;
@@ -68,77 +69,67 @@ namespace LanguageEditor.Views
             _canvas.NodeTemplate = template.GetTemplate();
         }
 
-        private void OnEntityChange(long key)
+        private void OnEntityChange(long key, Changelog changelog)
         {
             _canvas.Model.Commit(m =>
             {
                 var node = ((DiagramModel)_canvas.Model).Data.Entities.Find(e => e.Key == key);
-                
-                m.Set(node, "Name", "human11111");
+
+                foreach (var record in changelog.Log)
+                    m.Set(node, record.Key, record.Value);
+
             }, "OnEntityChange");
         }
-
-
+        
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 0.25;
         }
-
         private void toolStripMenuItemScale50_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 0.5;
         }
-
         private void toolStripMenuItemScale75_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 0.75;
         }
-
         private void toolStripMenuItemScale100_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 1.0;
         }
-
         private void toolStripMenuItemScale125_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 1.25;
         }
-
         private void toolStripMenuItemScale150_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 1.5;
         }
-
         private void toolStripMenuItemScale200_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 2.0;
         }
-
         private void toolStripMenuItemScale300_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 3.0;
         }
-
         private void toolStripButtonUpscale_Click(object sender, EventArgs e)
         {
             _canvas.Scale += 0.1;
         }
-
         private void toolStripButtonDownScale_Click(object sender, EventArgs e)
         {
             _canvas.Scale -= 0.1;
         }
-
         private void toolStripButtonUndo_Click(object sender, EventArgs e)
         {
             _canvas.UndoManager.Undo();
         }
-
         private void toolStripButtonRedo_Click(object sender, EventArgs e)
         {
             _canvas.UndoManager.Redo();
         }
-
+        
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IPackager packager = XmlPackager.CreateInstance();
@@ -158,8 +149,11 @@ namespace LanguageEditor.Views
 
         private void buttonAddEntity_Click(object sender, EventArgs e)
         {
-            EntityEdit form = new EntityEdit(((DiagramModel)_canvas.Model).Data.Entities[0]);
+            var entity = new Entity();
+            var form = new EntityEdit(entity);
             form.Show();
+            
+            _canvas.Model.AddNodeData(entity);
         }
     }
 }

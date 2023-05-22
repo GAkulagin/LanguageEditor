@@ -151,6 +151,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Changelog.cs" />
     <Compile Include="DisplayedDataLists.cs" />
     <Compile Include="EditorMode.cs" />
     <Compile Include="ElementTemplates\ITemplate.cs" />

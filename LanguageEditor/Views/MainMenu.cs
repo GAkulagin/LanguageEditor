@@ -17,8 +17,7 @@ namespace LanguageEditor.Views
 
             Figures.DefineExtraFigures();
         }
-
-
+        
         private void SetListViewItems(ListView view, List<ModelFile> models)
         {
             foreach(var model in models)

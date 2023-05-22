@@ -20,27 +20,29 @@ namespace LanguageEditor
             { "вещественное число", typeof(double).FullName },
             { "дата", typeof(DateTime).FullName }
         };
-        private static List<string> _figures = new List<string>
+
+        // order must be equal to EntityEdit.listViewShape.LargeImageList items
+        private static Dictionary<string, string> _figures = new Dictionary<string, string>
         {
-            "Rectangle",
-            "RoundedRectangle",
-            "FramedRectangle",
-            "Parallelogram",
-            "Trapezoid",
-            "Square",
-            "Circle",
-            "Ellipse",
-            "Triangle",
-            "TriangleRight",
-            "TriangleLeft",
-            "TriangleDown",
-            "Diamond",
-            "Pentagon",
-            "Hexagon",
-            "Heptagon",
-            "Octagon",
-            "Procedure",
-            "Cloud"
+            { "Rectangle",  "Прямоугольник" },
+            { "RoundedRectangle", "Прямоугольник с закругленными краями" },
+            { "FramedRectangle", "Рамка" },
+            { "Parallelogram",  "Параллелограм" },
+            { "Trapezoid", "Трапеция" },
+            { "Square", "Квадрат" },
+            { "Circle",  "Круг" },
+            { "Ellipse", "Эллипс" },
+            { "Triangle", "Треугольник" },
+            { "TriangleRight",  "Треугольник, вправо" },
+            { "TriangleLeft", "Треугольник, влево" },
+            { "TriangleDown", "Треугольник, вниз" },
+            { "Diamond",  "Ромб" },
+            { "Pentagon", "Пятиугольник" },
+            { "Hexagon", "Шестиугольник" },
+            { "Heptagon",  "Семиугольник" },
+            { "Octagon", "Восьмиугольник" },
+            { "Procedure", "Подпроцесс" },
+            { "Cloud", "Облако" },
         };
 
         public static List<string> ShortTypenames
@@ -53,7 +55,7 @@ namespace LanguageEditor
             get { return _types; }
         }
 
-        public static List<string> Figures
+        public static Dictionary<string, string> Figures
         {
             get { return _figures; }
         }
