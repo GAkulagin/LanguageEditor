@@ -1,5 +1,6 @@
 ﻿using Northwoods.Go;
 using System;
+using LanguageEditor.ElementTemplates.ContextMenuCommands;
 using Northwoods.Go.Models;
 
 
@@ -16,7 +17,11 @@ namespace LanguageEditor.ElementTemplates
                 SelectionElementName = "Shape",
                 Rotatable = true,
                 LocationSpot = Spot.Center,
-                RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment()
+                RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment(),
+                ContextMenu = new ContextMenuAdornment(
+                    new EditNodeCommand(), 
+                    new RemoveNodeCommand()
+                    ).GetAdornment()
             }
                 .Add(
                     new Shape()

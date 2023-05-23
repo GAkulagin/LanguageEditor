@@ -153,6 +153,10 @@
   <ItemGroup>
     <Compile Include="Changelog.cs" />
     <Compile Include="DisplayedDataLists.cs" />
+    <Compile Include="ElementTemplates\ContextMenuAdornment.cs" />
+    <Compile Include="ElementTemplates\ContextMenuCommands\EditNodeCommand.cs" />
+    <Compile Include="ElementTemplates\ContextMenuCommands\RemoveNodeCommand.cs" />
+    <Compile Include="ElementTemplates\ContextMenuCommands\IContextMenuCommand.cs" />
     <Compile Include="ElementTemplates\ITemplate.cs" />
     <Compile Include="ElementTemplates\ModelEntityTemplate.cs" />
     <Compile Include="ElementTemplates\PictureTemplate.cs" />

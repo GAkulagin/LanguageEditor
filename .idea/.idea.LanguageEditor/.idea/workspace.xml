@@ -11,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/0a/71a069c7/Trace.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/ce/e533f793/GraphLinksModel`6.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -67,7 +68,7 @@
       <updated>1684503905507</updated>
       <workItem from="1684503906354" duration="214000" />
       <workItem from="1684743050149" duration="9734000" />
-      <workItem from="1684825467605" duration="17135000" />
+      <workItem from="1684825467605" duration="23460000" />
     </task>
     <servers />
   </component>

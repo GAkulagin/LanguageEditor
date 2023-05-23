@@ -35,7 +35,8 @@ namespace LanguageEditor.Views
 
             _canvas.Model = model;
 
-            Entity.EntityChanged += OnEntityChange;
+            Entity.EntityUpdated += OnEntityChange;
+            Entity.CallEntityEditForm += OnEntityEditorCall;
         }
 
 
@@ -81,6 +82,12 @@ namespace LanguageEditor.Views
                     m.Set(e, record.Key, record.Value);
                 
             }, "OnEntityChange");
+        }
+
+        private void OnEntityEditorCall(Entity e)
+        {
+            var form = new EntityEdit(e);
+            form.Show();
         }
         
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -136,7 +143,7 @@ namespace LanguageEditor.Views
         {
             IPackager packager = XmlPackager.CreateInstance();
 
-            packager.Pack((DiagramModel)_canvas.Model, "sample.xml");
+            packager.Pack((DiagramModel)_canvas.Model, @"C:\Users\Professional\Desktop\sample.xml");
         }
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,7 +153,7 @@ namespace LanguageEditor.Views
 
         private void сеткаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _canvas.Grid.Visible = _canvas.Grid.Visible == true ? false : true;
+            _canvas.Grid.Visible = !_canvas.Grid.Visible;
         }
 
         private void buttonAddEntity_Click(object sender, EventArgs e)

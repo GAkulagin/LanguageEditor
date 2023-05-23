@@ -22,8 +22,11 @@ namespace LanguageEditor.Models
         public List<Pole> Poles { get; set; }
         public List<Attribute> Attributes { get; set; }
 
-        public delegate void ChangeHandler(Entity e, Changelog changelog);
-        public static event ChangeHandler EntityChanged;
+        public delegate void UpdateHandler(Entity e, Changelog changelog);
+        public static event UpdateHandler EntityUpdated;
+
+        public delegate void EditFormHandler(Entity e);
+        public static event EditFormHandler CallEntityEditForm;
 
         public Entity()
         {
@@ -47,7 +50,12 @@ namespace LanguageEditor.Models
 
         public static void UpdateEntityView(Entity e, Changelog changelog)
         {
-            Entity.EntityChanged?.Invoke(e, changelog);
+            EntityUpdated?.Invoke(e, changelog);
+        }
+
+        public static void OpenEntityEditor(Entity e)
+        {
+            CallEntityEditForm?.Invoke(e);
         }
     }
 }

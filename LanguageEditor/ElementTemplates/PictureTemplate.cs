@@ -1,4 +1,5 @@
-﻿using Northwoods.Go;
+﻿using LanguageEditor.ElementTemplates.ContextMenuCommands;
+using Northwoods.Go;
 using Northwoods.Go.Models;
 
 namespace LanguageEditor.ElementTemplates
@@ -14,7 +15,11 @@ namespace LanguageEditor.ElementTemplates
                 ResizeElementName = "Panel",
                 SelectionElementName = "Panel",
                 LocationSpot = Spot.Center,
-                RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment()
+                RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment(),
+                ContextMenu = new ContextMenuAdornment(
+                    new EditNodeCommand(), 
+                    new RemoveNodeCommand()
+                ).GetAdornment()
             }
                 .Add(
                     new Panel("Auto")
