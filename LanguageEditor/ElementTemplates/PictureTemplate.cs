@@ -1,4 +1,5 @@
 ﻿using Northwoods.Go;
+using Northwoods.Go.Models;
 
 namespace LanguageEditor.ElementTemplates
 {
@@ -10,34 +11,27 @@ namespace LanguageEditor.ElementTemplates
             {
                 Resizable = true,
                 Rotatable = true,
-                ResizeElementName = "Shape",
-                SelectionElementName = "Shape",
+                ResizeElementName = "Panel",
+                SelectionElementName = "Panel",
                 LocationSpot = Spot.Center,
-                RotateAdornmentTemplate = new Adornment { LocationSpot = Spot.Center }
-                    .Add(
-                        new Shape("BpmnActivityLoop")
-                        {
-                            Width = 12,
-                            Height = 12,
-                            Cursor = "pointer",
-                            Background = "transparent",
-                            Stroke = "dodgerblue",
-                            StrokeWidth = 2
-                        }
-                    )
+                RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment()
             }
                 .Add(
                     new Panel("Auto")
                         {
-                            Name = "Shape",
+                            Name = "Panel",
                             MinSize = new Size(20,20),
                             MaxSize = new Size(256,256),
                         }
                         .Add(
                             new Picture().Bind("Source", "Image")
-                        ),
+                        )
+                        .Bind(new Binding("Height").MakeTwoWay())
+                        .Bind(new Binding("Width").MakeTwoWay()),
                     new TextBlock().Bind("Text", "Name")
-                ).Bind("Category");
+                )
+                .Bind("Category")
+                .Bind(new Binding("Angle").MakeTwoWay());
         }
     }
 }

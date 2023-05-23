@@ -1,5 +1,6 @@
 ﻿using Northwoods.Go;
 using System;
+using Northwoods.Go.Models;
 
 
 namespace LanguageEditor.ElementTemplates
@@ -15,18 +16,7 @@ namespace LanguageEditor.ElementTemplates
                 SelectionElementName = "Shape",
                 Rotatable = true,
                 LocationSpot = Spot.Center,
-                RotateAdornmentTemplate = new Adornment { LocationSpot = Spot.Center }
-                          .Add(
-                            new Shape("BpmnActivityLoop")
-                            {
-                                Width = 12,
-                                Height = 12,
-                                Cursor = "pointer",
-                                Background = "transparent",
-                                Stroke = "dodgerblue",
-                                StrokeWidth = 2
-                            }
-                          )
+                RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment()
             }
                 .Add(
                     new Shape()
@@ -36,11 +26,14 @@ namespace LanguageEditor.ElementTemplates
                     }
                     .Bind("Figure")
                     .Bind("Fill", "FillColor")
-                    .Bind("Stroke", "BorderColor"),
+                    .Bind("Stroke", "BorderColor")
+                    .Bind(new Binding("Height").MakeTwoWay())
+                    .Bind(new Binding("Width").MakeTwoWay()),
                     new TextBlock()
                         .Bind("Text", "Name")
                 )
-                .Bind("Category");
+                .Bind("Category")
+                .Bind(new Binding("Angle").MakeTwoWay());
         }
     }
 }

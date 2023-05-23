@@ -156,6 +156,7 @@
     <Compile Include="ElementTemplates\ITemplate.cs" />
     <Compile Include="ElementTemplates\ModelEntityTemplate.cs" />
     <Compile Include="ElementTemplates\PictureTemplate.cs" />
+    <Compile Include="ElementTemplates\RotationSymbolTemplate.cs" />
     <Compile Include="Enums\EditorMode.cs" />
     <Compile Include="Enums\TemplateCategories.cs" />
     <Compile Include="Figures.cs" />

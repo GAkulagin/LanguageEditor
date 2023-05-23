@@ -73,15 +73,13 @@ namespace LanguageEditor.Views
             };
         }
 
-        private void OnEntityChange(long key, Changelog changelog)
+        private void OnEntityChange(Entity e, Changelog changelog)
         {
             _canvas.Model.Commit(m =>
             {
-                var node = ((DiagramModel)_canvas.Model).Data.Entities.Find(e => e.Key == key);
-
                 foreach (var record in changelog.Log)
-                    m.Set(node, record.Key, record.Value);
-
+                    m.Set(e, record.Key, record.Value);
+                
             }, "OnEntityChange");
         }
         
