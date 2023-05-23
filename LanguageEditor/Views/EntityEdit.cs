@@ -36,10 +36,12 @@ namespace LanguageEditor.Views
             textBoxName.Text = _entity.Name;
             checkBoxIsAbstract.Checked = _entity.IsAbstract;
             checkBoxCanSetMaxCount.Checked = _entity.CanSetMaxCount;
+            checkBoxImage.Checked = !string.IsNullOrEmpty(_entity.Image);
             numericUpDownMaxCount.Value = _entity.MaxCount;
-            if (!_entity.CanSetMaxCount)
-                numericUpDownMaxCount.Enabled = false;
-            
+            numericUpDownMaxCount.Enabled = _entity.CanSetMaxCount;
+            toolTip1.SetToolTip(labelImgPath, _entity.Image);
+            buttonSetImage.Enabled = !string.IsNullOrEmpty(_entity.Image);
+
             ShapesImageListSetup();
 
             panelFillColor.BackColor = Color.LightGray;
@@ -87,8 +89,8 @@ namespace LanguageEditor.Views
             _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
 
             var newfigure = listViewShape.Items[0].Tag.ToString();
-            if (listViewShape.SelectedItems.Count > 0) newfigure = listViewShape.SelectedItems[0].Tag.ToString();
-
+            if (listViewShape.SelectedItems.Count > 0) 
+                newfigure = listViewShape.SelectedItems[0].Tag.ToString();
             _changelog.Add("Figure", newfigure);
 
             Entity.UpdateEntityView(_entity, _changelog);
@@ -185,5 +187,47 @@ namespace LanguageEditor.Views
             panelStrokeColor.BackColor = colorDialog.Color;
             _changelog.Add("BorderColor", ColorTranslator.ToHtml(colorDialog.Color));
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxImage.Checked)
+            {
+                listViewShape.Enabled = false;
+                buttonFillColorDialog.Enabled = false;
+                buttonBorderColorDialog.Enabled = false;
+                buttonSetImage.Enabled = true;
+                labelImgPath.Text = _entity.Image;
+                labelImgPath.Visible = true;
+                buttonSave.Enabled = !string.IsNullOrEmpty(_entity.Image);
+                _changelog.Add("Category", TemplateCategories.Picture);
+            }
+            else
+            {
+                listViewShape.Enabled = true;
+                buttonFillColorDialog.Enabled = true;
+                buttonBorderColorDialog.Enabled = true;
+                buttonSetImage.Enabled = false;
+                labelImgPath.Text = "";
+                labelImgPath.Visible = false;
+                buttonSave.Enabled = true;
+                _entity.Image = null;
+                _changelog.Add("Category", TemplateCategories.Default);
+            }
+        }
+
+        private void buttonSetImage_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "Images (*.bmp;*.jpg;*.gif;*.png;*.jpeg)|*.bmp;*.jpg;*.gif;*.png;*.jpeg";
+            openFileDialog.RestoreDirectory = true;
+            
+            if(openFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            _changelog.Add("Image", openFileDialog.FileName);
+            labelImgPath.Text = openFileDialog.FileName;
+            buttonSave.Enabled = true;
+            toolTip1.SetToolTip(labelImgPath, openFileDialog.FileName);
+        }
+        
     }
 }

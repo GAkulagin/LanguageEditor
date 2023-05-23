@@ -1,6 +1,7 @@
 ﻿using Northwoods.Go;
 using Northwoods.Go.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using LanguageEditor.Models;
 using LanguageEditor.RepositoryClasses;
@@ -65,8 +66,11 @@ namespace LanguageEditor.Views
 
         private void ModelingSetup()
         {
-            var template = new ModelEntityTemplate();
-            _canvas.NodeTemplate = template.GetTemplate();
+            _canvas.NodeTemplateMap = new Dictionary<string, Part>
+            {
+                { TemplateCategories.Default, new ModelEntityTemplate().GetTemplate() },
+                { TemplateCategories.Picture, new PictureTemplate().GetTemplate() }
+            };
         }
 
         private void OnEntityChange(long key, Changelog changelog)

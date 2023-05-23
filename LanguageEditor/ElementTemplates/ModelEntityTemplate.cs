@@ -36,8 +36,11 @@ namespace LanguageEditor.ElementTemplates
                     }
                     .Bind("Figure")
                     .Bind("Fill", "FillColor")
-                    .Bind("Stroke", "BorderColor")
-                    );
+                    .Bind("Stroke", "BorderColor"),
+                    new TextBlock()
+                        .Bind("Text", "Name")
+                )
+                .Bind("Category");
         }
     }
 }

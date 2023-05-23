@@ -14,6 +14,7 @@ namespace LanguageEditor.Models
         public string Figure { get; set; }
         public string FillColor { get; set; }
         public string BorderColor { get; set; }
+        public string Image { get; set; }
 
         public List<Pole> Poles { get; set; }
         public List<Attribute> Attributes { get; set; }
@@ -35,6 +36,7 @@ namespace LanguageEditor.Models
             Figure = "Rectangle";
             FillColor = "#D3D3D3";
             BorderColor = "#000000";
+            Category = TemplateCategories.Default;
         }
 
         public static void UpdateEntityView(Entity e, Changelog changelog)

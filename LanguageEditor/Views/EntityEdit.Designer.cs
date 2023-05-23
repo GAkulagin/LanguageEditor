@@ -53,6 +53,13 @@
             this.buttonBorderColorDialog = new System.Windows.Forms.Button();
             this.panelFillColor = new System.Windows.Forms.Panel();
             this.panelStrokeColor = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.buttonSetImage = new System.Windows.Forms.Button();
+            this.labelImgPath = new System.Windows.Forms.Label();
+            this.checkBoxImage = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -150,7 +157,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(1175, 669);
+            this.buttonSave.Location = new System.Drawing.Point(1179, 556);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(100, 28);
@@ -162,16 +169,16 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(706, 68);
+            this.dataGridView.Location = new System.Drawing.Point(658, 213);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.Size = new System.Drawing.Size(573, 185);
+            this.dataGridView.Size = new System.Drawing.Size(621, 243);
             this.dataGridView.TabIndex = 10;
             // 
             // buttonDeleteAttribute
             // 
-            this.buttonDeleteAttribute.Location = new System.Drawing.Point(1178, 261);
+            this.buttonDeleteAttribute.Location = new System.Drawing.Point(1179, 464);
             this.buttonDeleteAttribute.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteAttribute.Name = "buttonDeleteAttribute";
             this.buttonDeleteAttribute.Size = new System.Drawing.Size(100, 28);
@@ -182,7 +189,7 @@
             // 
             // buttonAddAttribute
             // 
-            this.buttonAddAttribute.Location = new System.Drawing.Point(1057, 261);
+            this.buttonAddAttribute.Location = new System.Drawing.Point(1058, 464);
             this.buttonAddAttribute.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddAttribute.Name = "buttonAddAttribute";
             this.buttonAddAttribute.Size = new System.Drawing.Size(100, 28);
@@ -295,11 +302,69 @@
             this.panelStrokeColor.Size = new System.Drawing.Size(25, 23);
             this.panelStrokeColor.TabIndex = 20;
             // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(658, 186);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 23);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Атрибуты:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 615);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(102, 17);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Изображение:";
+            // 
+            // buttonSetImage
+            // 
+            this.buttonSetImage.Location = new System.Drawing.Point(176, 609);
+            this.buttonSetImage.Name = "buttonSetImage";
+            this.buttonSetImage.Size = new System.Drawing.Size(98, 29);
+            this.buttonSetImage.TabIndex = 23;
+            this.buttonSetImage.Text = "Выбрать...";
+            this.buttonSetImage.UseVisualStyleBackColor = true;
+            this.buttonSetImage.Click += new System.EventHandler(this.buttonSetImage_Click);
+            // 
+            // labelImgPath
+            // 
+            this.labelImgPath.AutoSize = true;
+            this.labelImgPath.Location = new System.Drawing.Point(296, 615);
+            this.labelImgPath.MaximumSize = new System.Drawing.Size(300, 17);
+            this.labelImgPath.Name = "labelImgPath";
+            this.labelImgPath.Size = new System.Drawing.Size(74, 17);
+            this.labelImgPath.TabIndex = 25;
+            this.labelImgPath.Text = "imagepath";
+            this.labelImgPath.Visible = false;
+            // 
+            // checkBoxImage
+            // 
+            this.checkBoxImage.AutoSize = true;
+            this.checkBoxImage.Location = new System.Drawing.Point(126, 616);
+            this.checkBoxImage.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxImage.Name = "checkBoxImage";
+            this.checkBoxImage.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxImage.TabIndex = 26;
+            this.checkBoxImage.UseVisualStyleBackColor = true;
+            this.checkBoxImage.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
             // EntityEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 710);
+            this.ClientSize = new System.Drawing.Size(1291, 651);
+            this.Controls.Add(this.checkBoxImage);
+            this.Controls.Add(this.labelImgPath);
+            this.Controls.Add(this.buttonSetImage);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.panelStrokeColor);
             this.Controls.Add(this.panelFillColor);
             this.Controls.Add(this.buttonBorderColorDialog);
@@ -321,16 +386,27 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "EntityEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Редактор сущности";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+
+        private System.Windows.Forms.ToolTip toolTip1;
+
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button buttonSetImage;
+        private System.Windows.Forms.Label labelImgPath;
+        private System.Windows.Forms.CheckBox checkBoxImage;
 
         private System.Windows.Forms.ImageList imageListShapes;
 
