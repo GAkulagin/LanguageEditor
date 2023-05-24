@@ -35,7 +35,11 @@ namespace LanguageEditor.ElementTemplates
                     .Bind(new Binding("Height").MakeTwoWay())
                     .Bind(new Binding("Width").MakeTwoWay()),
                     new TextBlock()
-                        .Bind("Text", "Name")
+                        .Bind("Text")
+                        .Bind("Font")
+                        .Bind("Stroke", "FontColor")
+                        .Bind("IsStrikethrough")
+                        .Bind("IsUnderline")
                 )
                 .Bind("Category")
                 .Bind(new Binding("Angle").MakeTwoWay());

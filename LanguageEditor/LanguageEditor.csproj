@@ -164,6 +164,7 @@
     <Compile Include="Enums\EditorMode.cs" />
     <Compile Include="Enums\TemplateCategories.cs" />
     <Compile Include="Figures.cs" />
+    <Compile Include="FontTransformer.cs" />
     <Compile Include="IdSetter.cs" />
     <Compile Include="Models\Attribute.cs" />
     <Compile Include="Models\DiagramModel.cs" />

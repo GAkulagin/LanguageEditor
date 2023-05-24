@@ -1,6 +1,6 @@
-attributeIdCounter=127
+attributeIdCounter=128
 poleIdCounter=78
 relationIdCounter=0
 hyperedgeIdCounter=0
-entityIdCounter=144
-modelIdCounter=41
+entityIdCounter=164
+modelIdCounter=42

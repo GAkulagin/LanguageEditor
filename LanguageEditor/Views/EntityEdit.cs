@@ -27,7 +27,6 @@ namespace LanguageEditor.Views
             _changelog = new Changelog();
 
             ControlsSetup();
-            DataGridSetup();
         }
 
 
@@ -41,12 +40,16 @@ namespace LanguageEditor.Views
             numericUpDownMaxCount.Enabled = _entity.CanSetMaxCount;
             toolTip1.SetToolTip(labelImgPath, _entity.Image);
             buttonSetImage.Enabled = !string.IsNullOrEmpty(_entity.Image);
-
-            ShapesImageListSetup();
-
+            openFileDialog.Filter = "Images (*.bmp;*.jpg;*.gif;*.png;*.jpeg)|*.bmp;*.jpg;*.gif;*.png;*.jpeg";
+            openFileDialog.RestoreDirectory = true;
+            fontDialog.ShowEffects = true;
             panelFillColor.BackColor = Color.LightGray;
             panelStrokeColor.BackColor = Color.Black;
             colorDialog.Color = Color.LightGray;
+            labelFontInfo.Text = $"{_entity.Font.Family} {_entity.Font.Size} pt";
+
+            ShapesImageListSetup();
+            DataGridSetup();
         }
 
         private void DataGridSetup()
@@ -217,9 +220,6 @@ namespace LanguageEditor.Views
 
         private void buttonSetImage_Click(object sender, EventArgs e)
         {
-            openFileDialog.Filter = "Images (*.bmp;*.jpg;*.gif;*.png;*.jpeg)|*.bmp;*.jpg;*.gif;*.png;*.jpeg";
-            openFileDialog.RestoreDirectory = true;
-            
             if(openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
@@ -228,6 +228,17 @@ namespace LanguageEditor.Views
             buttonSave.Enabled = true;
             toolTip1.SetToolTip(labelImgPath, openFileDialog.FileName);
         }
-        
+
+        private void buttonSetFont_Click(object sender, EventArgs e)
+        {
+            if (fontDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            
+            _changelog.Add("Font", FontTransformer.Transform(fontDialog.Font));
+            _changelog.Add("FontColor", ColorTranslator.ToHtml(fontDialog.Color));
+            _changelog.Add("IsStrikethrough", fontDialog.Font.Strikeout);
+            _changelog.Add("IsUnderline", fontDialog.Font.Underline);
+            labelFontInfo.Text = $"{fontDialog.Font.Name} {fontDialog.Font.Size} pt";
+        }
     }
 }

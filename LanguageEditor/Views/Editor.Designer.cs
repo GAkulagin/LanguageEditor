@@ -268,7 +268,7 @@
             this.buttonAddEntity.Name = "buttonAddEntity";
             this.buttonAddEntity.Size = new System.Drawing.Size(137, 28);
             this.buttonAddEntity.TabIndex = 5;
-            this.buttonAddEntity.Text = "+ Новая сущность";
+            this.buttonAddEntity.Text = "+ Новая вершина";
             this.buttonAddEntity.UseVisualStyleBackColor = true;
             this.buttonAddEntity.Click += new System.EventHandler(this.buttonAddEntity_Click);
             // 

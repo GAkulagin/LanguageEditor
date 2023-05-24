@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Northwoods.Go;
 
 
 namespace LanguageEditor.Models
@@ -11,6 +12,7 @@ namespace LanguageEditor.Models
         public int MaxCount { get; set; }
         public Entity Ancestor { get; set; }
 
+        public string Text { get; set; }
         public string Figure { get; set; }
         public string FillColor { get; set; }
         public string BorderColor { get; set; }
@@ -18,6 +20,10 @@ namespace LanguageEditor.Models
         public double Height { get; set; }
         public double Width { get; set; }
         public double Angle { get; set; }
+        public Font Font { get; set; }
+        public string FontColor { get; set; }
+        public bool IsStrikethrough { get; set; }
+        public bool IsUnderline { get; set; }
 
         public List<Pole> Poles { get; set; }
         public List<Attribute> Attributes { get; set; }
@@ -46,6 +52,11 @@ namespace LanguageEditor.Models
             Height = 64.0;
             Width = 64.0;
             Angle = 0.0;
+            Font = new Font("Arial", 12, FontStyle.Regular, FontWeight.Regular);
+            FontColor = "#000000";
+            IsStrikethrough = false;
+            IsUnderline = false;
+            Text = Name;
         }
 
         public static void UpdateEntityView(Entity e, Changelog changelog)
