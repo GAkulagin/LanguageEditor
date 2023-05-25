@@ -46,7 +46,7 @@ namespace LanguageEditor.Views
             panelFillColor.BackColor = Color.LightGray;
             panelStrokeColor.BackColor = Color.Black;
             colorDialog.Color = Color.LightGray;
-            labelFontInfo.Text = $"{_entity.Font.Family} {_entity.Font.Size} pt";
+            labelFontInfo.Text = $"{_entity.FontName} {_entity.FontSize} pt";
 
             ShapesImageListSetup();
             DataGridSetup();
@@ -234,7 +234,7 @@ namespace LanguageEditor.Views
             if (fontDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             
-            _changelog.Add("Font", FontTransformer.Transform(fontDialog.Font));
+            _changelog.Add("Font", FontManager.GetNorthwoodsFont(fontDialog.Font));
             _changelog.Add("FontColor", ColorTranslator.ToHtml(fontDialog.Color));
             _changelog.Add("IsStrikethrough", fontDialog.Font.Strikeout);
             _changelog.Add("IsUnderline", fontDialog.Font.Underline);

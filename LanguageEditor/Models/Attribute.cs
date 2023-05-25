@@ -8,22 +8,10 @@ namespace LanguageEditor.Models
     {
         private dynamic _value;
         private Type _type;
-
+        
         public long Key { get; set; }
         public string Name { get; set; }
         public bool IsValueUnique { get; set; }
-        public dynamic Value
-        {
-            get { return _value; }
-            set
-            {
-                if (value == null) _value = null;
-                else if (_type == value.GetType()) _value = value;
-                else throw new WrongTypeException(
-                    $"Value does not match the attribute's type: type is {_type}, value is {value.GetType()}"
-                    );
-            }
-        }
         public string TypeName
         {
             get { return _type.FullName; }
@@ -44,11 +32,21 @@ namespace LanguageEditor.Models
                 }
             }
         }
-
-        public Attribute()
+        public dynamic Value
         {
-
+            get { return _value; }
+            set
+            {
+                if (value == null) _value = null;
+                else if (_type == value.GetType()) _value = value;
+                else throw new WrongTypeException(
+                    $"Value does not match the attribute's type: type is {_type}, value is {value.GetType()}"
+                );
+            }
         }
+        
+        
+        public Attribute(){}
 
         public Attribute(Type type)
         {

@@ -11,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76d7208923274e2dbcaefbab4db188642863a0/dc/f9543754/XmlReflectionImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/0a/71a069c7/Trace.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/ce/e533f793/GraphLinksModel`6.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -27,7 +28,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Inspections-IDEA&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -71,6 +72,9 @@
       <workItem from="1684825467605" duration="23460000" />
       <workItem from="1684919342978" duration="5196000" />
       <workItem from="1684926479554" duration="4448000" />
+      <workItem from="1684942956098" duration="3513000" />
+      <workItem from="1684999390786" duration="4805000" />
+      <workItem from="1685004367033" duration="1075000" />
     </task>
     <servers />
   </component>

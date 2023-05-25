@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Northwoods.Go;
 
 
@@ -6,13 +7,15 @@ namespace LanguageEditor.Models
 {
     public class Entity : DiagramModel.NodeData, IAttributedElement, IPoledElement
     {
+        [NonSerialized]
+        private Font _font;
+        
         public string Name { get; set; }
         public bool IsAbstract { get; set; }
         public bool CanSetMaxCount { get; set; }
         public int MaxCount { get; set; }
         public Entity Ancestor { get; set; }
-
-        public string Text { get; set; }
+        
         public string Figure { get; set; }
         public string FillColor { get; set; }
         public string BorderColor { get; set; }
@@ -20,8 +23,24 @@ namespace LanguageEditor.Models
         public double Height { get; set; }
         public double Width { get; set; }
         public double Angle { get; set; }
-        public Font Font { get; set; }
+
+        public Font Font
+        {
+            get => _font;
+            set
+            {
+                _font = value;
+                FontName = _font.Family;
+                FontSize = _font.Size;
+                IsItalic = _font.IsItalic;
+                IsBold = _font.Weight == FontWeight.Bold;
+            }
+        }
+        public string FontName { get; set; }
+        public float FontSize { get; set; }
         public string FontColor { get; set; }
+        public bool IsItalic { get; set; }
+        public bool IsBold { get; set; }
         public bool IsStrikethrough { get; set; }
         public bool IsUnderline { get; set; }
 
@@ -52,10 +71,14 @@ namespace LanguageEditor.Models
             Height = 64.0;
             Width = 64.0;
             Angle = 0.0;
-            Font = new Font("Arial", 12, FontStyle.Regular, FontWeight.Regular);
+            FontName = "Arial";
+            FontSize = 12.0f;
             FontColor = "#000000";
+            IsBold = false;
+            IsItalic = false;
             IsStrikethrough = false;
             IsUnderline = false;
+            Font = FontManager.GetNorthwoodsFont(FontName, FontSize, IsBold, IsItalic);
             Text = Name;
         }
 

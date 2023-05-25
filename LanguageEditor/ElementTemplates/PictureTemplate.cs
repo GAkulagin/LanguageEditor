@@ -41,7 +41,8 @@ namespace LanguageEditor.ElementTemplates
                         .Bind("IsUnderline")
                 )
                 .Bind("Category")
-                .Bind(new Binding("Angle").MakeTwoWay());
+                .Bind(new Binding("Angle").MakeTwoWay())
+                .Bind(new Binding("Location").MakeTwoWay());
         }
     }
 }

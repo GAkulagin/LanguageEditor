@@ -5,7 +5,7 @@ namespace LanguageEditor.Models
     // Связует объект ModelData с представлением диаграммы northwoods
     public class DiagramModel : GraphLinksModel<Entity, long, object, Hyperedge, long, Pole>
     {
-        public ModelData Data { get; set; }
+        public ModelData Data { get; }
         public long Key
         {
             get { return Data.Key; }
