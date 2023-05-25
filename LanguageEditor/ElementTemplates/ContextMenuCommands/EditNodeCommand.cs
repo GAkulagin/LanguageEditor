@@ -1,6 +1,7 @@
 ﻿using System;
 using LanguageEditor.Models;
 using Northwoods.Go;
+using LanguageEditor.Views;
 
 namespace LanguageEditor.ElementTemplates.ContextMenuCommands
 {
@@ -10,8 +11,8 @@ namespace LanguageEditor.ElementTemplates.ContextMenuCommands
         {
             return (e, obj) =>
             {
-                if(obj.Part.Data is Entity entity)
-                    Entity.OpenEntityEditor(entity);
+                if (obj.Part.Data is Entity entity)
+                    new EntityEdit(entity).Show();
             };
         }
     }

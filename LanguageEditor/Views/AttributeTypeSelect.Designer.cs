@@ -53,9 +53,9 @@ namespace LanguageEditor.Views
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(130, 54);
+            this.buttonSave.Location = new System.Drawing.Point(124, 54);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(83, 23);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Создать";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -72,10 +72,10 @@ namespace LanguageEditor.Views
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "AttributeTypeSelect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выберите тип атрибута";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

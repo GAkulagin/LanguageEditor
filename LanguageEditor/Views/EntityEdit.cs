@@ -47,6 +47,7 @@ namespace LanguageEditor.Views
             panelStrokeColor.BackColor = Color.Black;
             colorDialog.Color = Color.LightGray;
             labelFontInfo.Text = $"{_entity.FontName} {_entity.FontSize} pt";
+            textBoxEntityText.Text = _entity.Text;
 
             ShapesImageListSetup();
             DataGridSetup();
@@ -84,6 +85,7 @@ namespace LanguageEditor.Views
                 imageIndex++;
             }
         }
+        
         private void SaveEntity()
         {
             _entity.Name = textBoxName.Text;
@@ -95,6 +97,7 @@ namespace LanguageEditor.Views
             if (listViewShape.SelectedItems.Count > 0) 
                 newfigure = listViewShape.SelectedItems[0].Tag.ToString();
             _changelog.Add("Figure", newfigure);
+            _changelog.Add("Text", textBoxEntityText.Text);
 
             Entity.UpdateEntityView(_entity, _changelog);
         }

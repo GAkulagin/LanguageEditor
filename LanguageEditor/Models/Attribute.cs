@@ -22,13 +22,16 @@ namespace LanguageEditor.Models
                     _type = Type.GetType(value);
 
                     if (_type.IsValueType) _value = Activator.CreateInstance(_type);
-                    else if (_type == typeof(string)) _value = "";
-                    else _value = null;
+                    else
+                    {
+                        _type = typeof(string);
+                        _value = "";
+                    }
                 }
                 catch(Exception e)
                 {
-                    _type = typeof(object);
-                    _value = null;
+                    _type = typeof(string);
+                    _value = "";
                 }
             }
         }
@@ -37,8 +40,7 @@ namespace LanguageEditor.Models
             get { return _value; }
             set
             {
-                if (value == null) _value = null;
-                else if (_type == value.GetType()) _value = value;
+                if (_type == value.GetType()) _value = value;
                 else throw new WrongTypeException(
                     $"Value does not match the attribute's type: type is {_type}, value is {value.GetType()}"
                 );

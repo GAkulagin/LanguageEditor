@@ -62,8 +62,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxEntityText = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxEntityTextBind = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.buttonSetFont = new System.Windows.Forms.Button();
             this.fontDialog = new System.Windows.Forms.FontDialog();
@@ -379,27 +377,10 @@
             this.textBoxEntityText.Size = new System.Drawing.Size(407, 22);
             this.textBoxEntityText.TabIndex = 28;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(658, 67);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(160, 17);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Связать со значением:";
-            // 
-            // comboBoxEntityTextBind
-            // 
-            this.comboBoxEntityTextBind.FormattingEnabled = true;
-            this.comboBoxEntityTextBind.Location = new System.Drawing.Point(872, 64);
-            this.comboBoxEntityTextBind.Name = "comboBoxEntityTextBind";
-            this.comboBoxEntityTextBind.Size = new System.Drawing.Size(205, 24);
-            this.comboBoxEntityTextBind.TabIndex = 30;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(658, 119);
+            this.label12.Location = new System.Drawing.Point(658, 68);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label12.Size = new System.Drawing.Size(57, 17);
@@ -408,7 +389,7 @@
             // 
             // buttonSetFont
             // 
-            this.buttonSetFont.Location = new System.Drawing.Point(872, 113);
+            this.buttonSetFont.Location = new System.Drawing.Point(872, 62);
             this.buttonSetFont.Name = "buttonSetFont";
             this.buttonSetFont.Size = new System.Drawing.Size(107, 28);
             this.buttonSetFont.TabIndex = 32;
@@ -419,7 +400,7 @@
             // labelFontInfo
             // 
             this.labelFontInfo.AutoSize = true;
-            this.labelFontInfo.Location = new System.Drawing.Point(998, 119);
+            this.labelFontInfo.Location = new System.Drawing.Point(998, 68);
             this.labelFontInfo.Name = "labelFontInfo";
             this.labelFontInfo.Size = new System.Drawing.Size(55, 17);
             this.labelFontInfo.TabIndex = 33;
@@ -434,8 +415,6 @@
             this.Controls.Add(this.labelFontInfo);
             this.Controls.Add(this.buttonSetFont);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBoxEntityTextBind);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxEntityText);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.checkBoxImage);
@@ -481,11 +460,9 @@
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.Label labelFontInfo;
 
-        private System.Windows.Forms.ComboBox comboBoxEntityTextBind;
         private System.Windows.Forms.Label label12;
 
         private System.Windows.Forms.TextBox textBoxEntityText;
-        private System.Windows.Forms.Label label11;
 
         private System.Windows.Forms.Label label10;
 

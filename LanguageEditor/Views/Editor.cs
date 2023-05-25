@@ -1,5 +1,4 @@
 ﻿using Northwoods.Go;
-using Northwoods.Go.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -36,7 +35,6 @@ namespace LanguageEditor.Views
             _canvas.Model = model;
 
             Entity.EntityUpdated += OnEntityChange;
-            Entity.CallEntityEditForm += OnEntityEditorCall;
         }
 
 
@@ -62,7 +60,7 @@ namespace LanguageEditor.Views
 
         private void MetamodelingSetup()
         {
-
+            _canvas.NodeTemplate = new MetamodelEntityTemplate().GetTemplate();
         }
 
         private void ModelingSetup()

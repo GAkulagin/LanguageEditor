@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace LanguageEditor.Models
 {
-    public class Hyperedge : DiagramModel.LinkData, IAttributedElement, IPoledElement
+    public class Hyperedge : IAttributedElement, IPoledElement
     {
+        public long Key { get; set; }
         public string Name { get; set; }
         public List<Relation> Relations { get; set; } = new List<Relation>();
         public List<Pole> Poles { get; set; } = new List<Pole>();
-
-
         public List<Attribute> Attributes { get; set; } = new List<Attribute>();
 
 

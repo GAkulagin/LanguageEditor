@@ -158,6 +158,7 @@
     <Compile Include="ElementTemplates\ContextMenuCommands\RemoveNodeCommand.cs" />
     <Compile Include="ElementTemplates\ContextMenuCommands\IContextMenuCommand.cs" />
     <Compile Include="ElementTemplates\ITemplate.cs" />
+    <Compile Include="ElementTemplates\MetamodelEntityTemplate.cs" />
     <Compile Include="ElementTemplates\ModelEntityTemplate.cs" />
     <Compile Include="ElementTemplates\PictureTemplate.cs" />
     <Compile Include="ElementTemplates\RotationSymbolTemplate.cs" />

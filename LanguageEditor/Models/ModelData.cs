@@ -13,7 +13,7 @@ namespace LanguageEditor.Models
         public DateTime CreationDate { get; set; }
         public ModelData Metamodel { get; set; }
         public List<Entity> Entities { get; set; } = new List<Entity>();
-        public List<Hyperedge> Hyperedges { get; set; } = new List<Hyperedge>();
+        public List<Relation> Relations { get; set; } = new List<Relation>();
 
 
         public ModelData()

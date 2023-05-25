@@ -308,6 +308,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.diagramControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Editor";

@@ -7,9 +7,8 @@ namespace LanguageEditor.Models
 {
     public class Entity : DiagramModel.NodeData, IAttributedElement, IPoledElement
     {
-        [NonSerialized]
         private Font _font;
-        
+
         public string Name { get; set; }
         public bool IsAbstract { get; set; }
         public bool CanSetMaxCount { get; set; }
@@ -50,13 +49,10 @@ namespace LanguageEditor.Models
         public delegate void UpdateHandler(Entity e, Changelog changelog);
         public static event UpdateHandler EntityUpdated;
 
-        public delegate void EditFormHandler(Entity e);
-        public static event EditFormHandler CallEntityEditForm;
-
+        
         public Entity()
         {
             IdSetter.SetId(this);
-
             Name = "Entity" + Key;
             IsAbstract = false;
             CanSetMaxCount = false;
@@ -85,11 +81,6 @@ namespace LanguageEditor.Models
         public static void UpdateEntityView(Entity e, Changelog changelog)
         {
             EntityUpdated?.Invoke(e, changelog);
-        }
-
-        public static void OpenEntityEditor(Entity e)
-        {
-            CallEntityEditForm?.Invoke(e);
         }
     }
 }

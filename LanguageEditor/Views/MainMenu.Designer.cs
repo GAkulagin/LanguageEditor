@@ -54,7 +54,7 @@
             // 
             this.metamodelsListView.HideSelection = false;
             this.metamodelsListView.Location = new System.Drawing.Point(20, 38);
-            this.metamodelsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metamodelsListView.Margin = new System.Windows.Forms.Padding(4);
             this.metamodelsListView.MultiSelect = false;
             this.metamodelsListView.Name = "metamodelsListView";
             this.metamodelsListView.Size = new System.Drawing.Size(404, 432);
@@ -85,7 +85,7 @@
             // 
             this.modelsListView.HideSelection = false;
             this.modelsListView.Location = new System.Drawing.Point(651, 38);
-            this.modelsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.modelsListView.Margin = new System.Windows.Forms.Padding(4);
             this.modelsListView.MultiSelect = false;
             this.modelsListView.Name = "modelsListView";
             this.modelsListView.Size = new System.Drawing.Size(399, 432);
@@ -108,10 +108,7 @@
             // metamodelContextMenu
             // 
             this.metamodelContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.metamodelContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.редактироватьToolStripMenuItem,
-            this.создатьМодельНаОсновеToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
+            this.metamodelContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.редактироватьToolStripMenuItem, this.создатьМодельНаОсновеToolStripMenuItem, this.удалитьToolStripMenuItem });
             this.metamodelContextMenu.Name = "metamodelContextMenu";
             this.metamodelContextMenu.Size = new System.Drawing.Size(265, 76);
             // 
@@ -139,10 +136,7 @@
             // modelContextMenu
             // 
             this.modelContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.modelContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.редактироватьToolStripMenuItem1,
-            this.задатьТрансформациюToolStripMenuItem,
-            this.удалитьToolStripMenuItem1});
+            this.modelContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.редактироватьToolStripMenuItem1, this.задатьТрансформациюToolStripMenuItem, this.удалитьToolStripMenuItem1 });
             this.modelContextMenu.Name = "modelContextMenu";
             this.modelContextMenu.Size = new System.Drawing.Size(254, 76);
             // 
@@ -155,9 +149,7 @@
             // 
             // задатьТрансформациюToolStripMenuItem
             // 
-            this.задатьТрансформациюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.модельмодельToolStripMenuItem,
-            this.модельтекстToolStripMenuItem});
+            this.задатьТрансформациюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.модельмодельToolStripMenuItem, this.модельтекстToolStripMenuItem });
             this.задатьТрансформациюToolStripMenuItem.Name = "задатьТрансформациюToolStripMenuItem";
             this.задатьТрансформациюToolStripMenuItem.Size = new System.Drawing.Size(253, 24);
             this.задатьТрансформациюToolStripMenuItem.Text = "Задать трансформацию...";
@@ -165,14 +157,14 @@
             // модельмодельToolStripMenuItem
             // 
             this.модельмодельToolStripMenuItem.Name = "модельмодельToolStripMenuItem";
-            this.модельмодельToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.модельмодельToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.модельмодельToolStripMenuItem.Text = "модель-модель";
             this.модельмодельToolStripMenuItem.Click += new System.EventHandler(this.модельмодельToolStripMenuItem_Click);
             // 
             // модельтекстToolStripMenuItem
             // 
             this.модельтекстToolStripMenuItem.Name = "модельтекстToolStripMenuItem";
-            this.модельтекстToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.модельтекстToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.модельтекстToolStripMenuItem.Text = "модель-текст";
             this.модельтекстToolStripMenuItem.Click += new System.EventHandler(this.модельтекстToolStripMenuItem_Click);
             // 
@@ -186,7 +178,7 @@
             // CreateMetamodelBtn
             // 
             this.CreateMetamodelBtn.Location = new System.Drawing.Point(20, 479);
-            this.CreateMetamodelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CreateMetamodelBtn.Margin = new System.Windows.Forms.Padding(4);
             this.CreateMetamodelBtn.Name = "CreateMetamodelBtn";
             this.CreateMetamodelBtn.Size = new System.Drawing.Size(172, 34);
             this.CreateMetamodelBtn.TabIndex = 4;
@@ -204,7 +196,8 @@
             this.Controls.Add(this.modelsListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.metamodelsListView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -214,7 +207,6 @@
             this.modelContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
