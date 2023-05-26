@@ -58,9 +58,13 @@
             this.overviewControl = new Northwoods.Go.WinForms.OverviewControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.paletteControl1 = new Northwoods.Go.WinForms.PaletteControl();
+            this.dgrSelectedElemData = new System.Windows.Forms.DataGridView();
+            this.btnViewAttributes = new System.Windows.Forms.Button();
+            this.btnViewProps = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrSelectedElemData)).BeginInit();
             this.SuspendLayout();
             // 
             // diagramControl
@@ -263,7 +267,7 @@
             // 
             this.buttonAddEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAddEntity.AutoSize = true;
-            this.buttonAddEntity.Location = new System.Drawing.Point(13, 780);
+            this.buttonAddEntity.Location = new System.Drawing.Point(322, 771);
             this.buttonAddEntity.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddEntity.Name = "buttonAddEntity";
             this.buttonAddEntity.Size = new System.Drawing.Size(137, 28);
@@ -296,11 +300,44 @@
             this.paletteControl1.TabIndex = 6;
             this.paletteControl1.Text = "paletteControl1";
             // 
+            // dgrSelectedElemData
+            // 
+            this.dgrSelectedElemData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgrSelectedElemData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrSelectedElemData.Location = new System.Drawing.Point(0, 590);
+            this.dgrSelectedElemData.Name = "dgrSelectedElemData";
+            this.dgrSelectedElemData.RowTemplate.Height = 24;
+            this.dgrSelectedElemData.Size = new System.Drawing.Size(302, 220);
+            this.dgrSelectedElemData.TabIndex = 7;
+            // 
+            // btnViewAttributes
+            // 
+            this.btnViewAttributes.Location = new System.Drawing.Point(216, 552);
+            this.btnViewAttributes.Name = "btnViewAttributes";
+            this.btnViewAttributes.Size = new System.Drawing.Size(86, 32);
+            this.btnViewAttributes.TabIndex = 8;
+            this.btnViewAttributes.Text = "Атрибуты";
+            this.btnViewAttributes.UseVisualStyleBackColor = true;
+            this.btnViewAttributes.Click += new System.EventHandler(this.btnViewAttributes_Click);
+            // 
+            // btnViewProps
+            // 
+            this.btnViewProps.Location = new System.Drawing.Point(124, 552);
+            this.btnViewProps.Name = "btnViewProps";
+            this.btnViewProps.Size = new System.Drawing.Size(86, 32);
+            this.btnViewProps.TabIndex = 9;
+            this.btnViewProps.Text = "Свойства";
+            this.btnViewProps.UseVisualStyleBackColor = true;
+            this.btnViewProps.Click += new System.EventHandler(this.btnViewProps_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 838);
+            this.Controls.Add(this.btnViewProps);
+            this.Controls.Add(this.btnViewAttributes);
+            this.Controls.Add(this.dgrSelectedElemData);
             this.Controls.Add(this.paletteControl1);
             this.Controls.Add(this.overviewControl);
             this.Controls.Add(this.buttonAddEntity);
@@ -320,9 +357,15 @@
             this.statusStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrSelectedElemData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnViewAttributes;
+        private System.Windows.Forms.Button btnViewProps;
+
+        private System.Windows.Forms.DataGridView dgrSelectedElemData;
 
         private Northwoods.Go.WinForms.PaletteControl paletteControl1;
 

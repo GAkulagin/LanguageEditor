@@ -1,6 +1,7 @@
 ﻿using Northwoods.Go;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using LanguageEditor.Models;
 using LanguageEditor.RepositoryClasses;
@@ -13,6 +14,9 @@ namespace LanguageEditor.Views
     {
         private Diagram _canvas;
         private Overview _overview;
+        private ElementData _selectedElemViewMode = ElementData.Properties;
+        private Dictionary<string, object> _selectedElemProps = new Dictionary<string, object>();
+        private Dictionary<string, object> _selectedElemAttrs = new Dictionary<string, object>();
 
         public Editor(DiagramModel model, EditorMode mode)
         {
@@ -22,6 +26,7 @@ namespace LanguageEditor.Views
 
             _canvas = diagramControl.Diagram;
 
+            DataGridSetup();
             DiagramSetup();
             OverviewSetup();
 
@@ -35,9 +40,17 @@ namespace LanguageEditor.Views
             _canvas.Model = model;
 
             Entity.EntityUpdated += OnEntityChange;
+            _canvas.ChangedSelection += OnSelectionChanged;
         }
 
 
+        private void DataGridSetup()
+        {
+            dgrSelectedElemData.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Свойство", ReadOnly = true });
+            dgrSelectedElemData.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Значение", ReadOnly = true });
+            dgrSelectedElemData.RowHeadersVisible = false;
+            dgrSelectedElemData.Columns[1].Width = 105;
+        }
         private void DiagramSetup()
         {
             _canvas.ViewportBoundsChanged += (s, e) =>
@@ -50,7 +63,6 @@ namespace LanguageEditor.Views
             _canvas.ToolManager.DraggingTool.IsGridSnapEnabled = true;
             _canvas.ToolManager.ResizingTool.IsGridSnapEnabled = true;
         }
-
         private void OverviewSetup()
         {
             _overview = overviewControl.Diagram as Overview;
@@ -62,7 +74,6 @@ namespace LanguageEditor.Views
         {
             _canvas.NodeTemplate = new MetamodelEntityTemplate().GetTemplate();
         }
-
         private void ModelingSetup()
         {
             _canvas.NodeTemplateMap = new Dictionary<string, Part>
@@ -70,6 +81,91 @@ namespace LanguageEditor.Views
                 { TemplateCategories.Default, new ModelEntityTemplate().GetTemplate() },
                 { TemplateCategories.Picture, new PictureTemplate().GetTemplate() }
             };
+        }
+
+        private void OnSelectionChanged(object sender, DiagramEvent args)
+        {
+            if (_canvas.Selection.Count == 0)
+            {
+                ClearDataGrid();
+                _selectedElemProps.Clear();
+                _selectedElemAttrs.Clear();
+                return;
+            }
+
+            _selectedElemProps.Clear();
+            _selectedElemAttrs.Clear();
+            
+            var selected = _canvas.Selection.Last();
+
+            switch (selected.Data)
+            {
+                case Entity entity:
+                    SetSelectedEntity(entity);
+                    break;
+                case Relation relation:
+                    SetSelectedRelation(relation);
+                    break;
+            }
+
+            switch (_selectedElemViewMode)
+            {
+                case ElementData.Attributes:
+                    ClearDataGrid();
+                    PopulateGridView(_selectedElemAttrs);
+                    dgrSelectedElemData.Columns[0].HeaderText = "Атрибут";
+                    break;
+                case ElementData.Properties:
+                    ClearDataGrid();
+                    PopulateGridView(_selectedElemProps);
+                    dgrSelectedElemData.Columns[0].HeaderText = "Свойство";
+                    break;
+            }
+        }
+        private void SetSelectedEntity(Entity entity)
+        {
+            _selectedElemProps.Add("Имя", entity.Name);
+            _selectedElemProps.Add("Абстрактная", entity.IsAbstract);
+            if(entity.CanSetMaxCount)
+                _selectedElemProps.Add("Макс. число экземпляров", entity.CanSetMaxCount);
+            _selectedElemProps.Add("Форма", entity.Figure);
+            _selectedElemProps.Add("Изображение", entity.Image);
+            _selectedElemProps.Add("Ширина", entity.Width);
+            _selectedElemProps.Add("Высота", entity.Height);
+            _selectedElemProps.Add("Угол поворота", entity.Angle);
+            _selectedElemProps.Add("Шрифт", entity.FontName);
+            _selectedElemProps.Add("Размер шрифта", entity.FontSize);
+            
+            SetSelectedElementAttrs(entity);
+        }
+        private void SetSelectedRelation(Relation relation)
+        {
+            _selectedElemProps.Add("Имя", relation.Name);
+            _selectedElemProps.Add("Источник", relation.From);
+            _selectedElemProps.Add("Приемник", relation.To);
+            _selectedElemProps.Add("Шрифт", relation.FontName);
+            _selectedElemProps.Add("Размер шрифта", relation.FontSize);
+            
+            SetSelectedElementAttrs(relation);
+        }
+        private void SetSelectedElementAttrs(IAttributedElement element)
+        {
+            foreach(var attr in element.Attributes)
+                _selectedElemAttrs.Add(attr.Name, attr.Value);
+        }
+
+        private void PopulateGridView(Dictionary<string, object> data)
+        {
+            foreach (var item in data)
+            {
+                dgrSelectedElemData.Rows.Add(new[] { item.Key, item.Value });
+            }
+        }
+
+        private void ClearDataGrid()
+        {
+            dgrSelectedElemData.Rows.Clear();
+            dgrSelectedElemData.Refresh();
         }
 
         private void OnEntityChange(Entity e, Changelog changelog)
@@ -82,12 +178,6 @@ namespace LanguageEditor.Views
             }, "OnEntityChange");
         }
 
-        private void OnEntityEditorCall(Entity e)
-        {
-            var form = new EntityEdit(e);
-            form.Show();
-        }
-        
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             _canvas.Scale = 0.25;
@@ -161,6 +251,22 @@ namespace LanguageEditor.Views
             form.Show();
             
             _canvas.Model.AddNodeData(entity);
+        }
+
+        private void btnViewProps_Click(object sender, EventArgs e)
+        {
+            _selectedElemViewMode = ElementData.Properties;
+            ClearDataGrid();
+            PopulateGridView(_selectedElemProps);
+            dgrSelectedElemData.Columns[0].HeaderText = "Свойство";
+        }
+
+        private void btnViewAttributes_Click(object sender, EventArgs e)
+        {
+            _selectedElemViewMode = ElementData.Attributes;
+            ClearDataGrid();
+            PopulateGridView(_selectedElemAttrs);
+            dgrSelectedElemData.Columns[0].HeaderText = "Атрибут";
         }
     }
 }

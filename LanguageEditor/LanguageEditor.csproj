@@ -164,6 +164,7 @@
     <Compile Include="ElementTemplates\PictureTemplate.cs" />
     <Compile Include="ElementTemplates\RotationSymbolTemplate.cs" />
     <Compile Include="Enums\EditorMode.cs" />
+    <Compile Include="Enums\ElementData.cs" />
     <Compile Include="Enums\TemplateCategories.cs" />
     <Compile Include="Figures.cs" />
     <Compile Include="FontManager.cs" />
