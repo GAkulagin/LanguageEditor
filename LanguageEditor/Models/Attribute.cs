@@ -20,13 +20,7 @@ namespace LanguageEditor.Models
                 try
                 {
                     _type = Type.GetType(value);
-
-                    if (_type.IsValueType) _value = Activator.CreateInstance(_type);
-                    else
-                    {
-                        _type = typeof(string);
-                        _value = "";
-                    }
+                    _value = Activator.CreateInstance(_type);
                 }
                 catch(Exception e)
                 {

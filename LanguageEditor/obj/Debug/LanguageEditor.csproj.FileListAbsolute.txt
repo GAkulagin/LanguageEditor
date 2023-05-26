@@ -130,3 +130,4 @@ C:\Users\Professional\Desktop\учеба\Курсовые работы\4 кур�
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.pdb
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Views.AttributeTypeSelect.resources
 C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\LanguageEditor\obj\Debug\LanguageEditor.Views.SingleElementView.resources

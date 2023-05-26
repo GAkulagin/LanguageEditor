@@ -20,7 +20,8 @@ namespace LanguageEditor.ElementTemplates
                 RotateAdornmentTemplate = new RotationSymbolTemplate().GetAdornment(),
                 ContextMenu = new ContextMenuAdornment(
                     new EditNodeCommand(), 
-                    new RemoveNodeCommand()
+                    new RemoveNodeCommand(),
+                    new ViewEntityCommand()
                     ).GetAdornment()
             }
                 .Add(

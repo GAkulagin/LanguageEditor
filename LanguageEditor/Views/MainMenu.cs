@@ -115,17 +115,14 @@ namespace LanguageEditor.Views
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            // load repository files data
             _metamodels = FileExtractor.GetModelFiles();
             SetListViewItems(metamodelsListView, _metamodels);
-
-            // load id automatic counters
+            
             IdSetter.Init();
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // write last ids in config
             IdSetter.Save();
         }
     }

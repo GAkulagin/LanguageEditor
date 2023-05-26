@@ -7,10 +7,12 @@ namespace LanguageEditor.ElementTemplates
     {
         private IContextMenuCommand _editCmd;
         private IContextMenuCommand _deleteCmd;
-        public ContextMenuAdornment(IContextMenuCommand editcmd, IContextMenuCommand deletecmd)
+        private IContextMenuCommand _viewCmd;
+        public ContextMenuAdornment(IContextMenuCommand editcmd, IContextMenuCommand deletecmd, IContextMenuCommand viewCmd)
         {
             _editCmd = editcmd;
             _deleteCmd = deletecmd;
+            _viewCmd = viewCmd;
         }
         
         public Adornment GetAdornment()
@@ -19,9 +21,14 @@ namespace LanguageEditor.ElementTemplates
                 .Add(
                     Builder.Make<Panel>("ContextMenuButton")
                         .Set(new {
+                            Click = _viewCmd.GetCommand()
+                        })
+                        .Add(new TextBlock("Просмотр")),
+                    Builder.Make<Panel>("ContextMenuButton")
+                        .Set(new {
                             Click = _editCmd.GetCommand()
                         })
-                        .Add(new TextBlock("Изменить...")),
+                        .Add(new TextBlock("Изменить")),
                     Builder.Make<Panel>("ContextMenuButton")
                         .Set(new {
                             Click = _deleteCmd.GetCommand()

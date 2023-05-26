@@ -157,6 +157,7 @@
     <Compile Include="ElementTemplates\ContextMenuCommands\EditNodeCommand.cs" />
     <Compile Include="ElementTemplates\ContextMenuCommands\RemoveNodeCommand.cs" />
     <Compile Include="ElementTemplates\ContextMenuCommands\IContextMenuCommand.cs" />
+    <Compile Include="ElementTemplates\ContextMenuCommands\ViewEntityCommand.cs" />
     <Compile Include="ElementTemplates\ITemplate.cs" />
     <Compile Include="ElementTemplates\MetamodelEntityTemplate.cs" />
     <Compile Include="ElementTemplates\ModelEntityTemplate.cs" />
@@ -206,6 +207,12 @@
     <Compile Include="Views\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SingleElementView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SingleElementView.Designer.cs">
+      <DependentUpon>SingleElementView.cs</DependentUpon>
+    </Compile>
     <Compile Include="WrongTypeException.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -227,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SingleElementView.resx">
+      <DependentUpon>SingleElementView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="OpenTK.dll.config" />
