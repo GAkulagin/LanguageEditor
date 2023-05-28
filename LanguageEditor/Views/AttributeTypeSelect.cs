@@ -13,13 +13,13 @@ namespace LanguageEditor.Views
 {
     public partial class AttributeTypeSelect : Form
     {
-        private EntityEdit _entityEditor;
+        private IEditingForm _editor;
         
-        public AttributeTypeSelect(EntityEdit form)
+        public AttributeTypeSelect(IEditingForm form)
         {
             InitializeComponent();
 
-            _entityEditor = form;
+            _editor = form;
 
             foreach (string name in DisplayedDataLists.ShortTypenames)
                 comboBoxType.Items.Add(name);
@@ -31,7 +31,7 @@ namespace LanguageEditor.Views
         {
             var typename = DisplayedDataLists.FullTypenames[comboBoxType.SelectedItem.ToString()];
             var attr = new Models.Attribute(Type.GetType((typename)));
-            _entityEditor.Attributes.Add(attr);
+            _editor.Attributes.Add(attr);
 
             Close();
         }

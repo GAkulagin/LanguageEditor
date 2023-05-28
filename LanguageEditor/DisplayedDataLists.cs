@@ -45,19 +45,50 @@ namespace LanguageEditor
             { "Cloud", "Облако" },
         };
 
-        public static List<string> ShortTypenames
+        private static List<string> _fromArrows = new List<string>
         {
-            get { return _typenames; }
-        }
-
-        public static Dictionary<string, string> FullTypenames
+            "",
+            "BackwardOpenTriangle",
+            "Backward",
+            "StretchedDiamond",
+            "Line",
+            "DoubleLine",
+            "BackSlash",
+            "X",
+            "OpenTriangle",
+            "OpenTriangleLine",
+            "ForwardSemiCircle",
+            "PlusCircle"
+        };
+        private static List<string> _toArrows = new List<string>
         {
-            get { return _types; }
-        }
-
-        public static Dictionary<string, string> Figures
+            "",
+            "OpenTriangle",
+            "Standard",
+            "StretchedDiamond",
+            "DoubleTriangle",
+            "Line",
+            "DoubleLine",
+            "BackSlash",
+            "X",
+            "BackwardOpenTriangle",
+            "BackwardOpenTriangleLine",
+            "BackwardSemiCircle",
+            "PlusCircle"
+        };
+        private static List<string> _strokeTypes = new List<string>
         {
-            get { return _figures; }
-        }
+            "solid",
+            "dashed",
+            "dotted",
+            "dotdashed"
+        };
+        
+        public static List<string> ShortTypenames => _typenames;
+        public static Dictionary<string, string> FullTypenames => _types;
+        public static Dictionary<string, string> Figures => _figures;
+        public static List<string> FromArrows => _fromArrows;
+        public static List<string> ToArrows => _toArrows;
+        public static List<string> StrokeTypes => _strokeTypes;
     }
 }

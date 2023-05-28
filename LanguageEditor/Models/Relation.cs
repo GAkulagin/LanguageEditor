@@ -9,14 +9,16 @@ namespace LanguageEditor.Models
 {
     public class Relation : DiagramModel.LinkData, IAttributedElement
     {
-        [NonSerialized]
         private Font _font;
-        
+
         public string Name { get; set; }
         public Pole SourcePole { get; set; }
         public Pole TargetPole { get; set; }
         public string FromArrow { get; set; }
         public string ToArrow { get; set; }
+        public string Color { get; set; }
+        public string Stroke { get; set; }
+        public float[] StrokePattern { get; set; }
         public Font Font
         {
             get => _font;
@@ -39,6 +41,9 @@ namespace LanguageEditor.Models
         public List<Entity> SourceEntities { get; set; } = new List<Entity>();
         public List<Entity> TargetEntities { get; set; } = new List<Entity>();
         public List<Attribute> Attributes { get; set; } = new List<Attribute>();
+        
+        public delegate void UpdateHandler(Relation r, Changelog changelog);
+        public static event UpdateHandler RelationUpdated;
 
 
         public Relation()
@@ -54,7 +59,15 @@ namespace LanguageEditor.Models
             Font = FontManager.GetNorthwoodsFont(FontName, FontSize, IsBold, IsItalic);
             FromArrow = "";
             ToArrow = "OpenTriangle";
+            Color = "#000000";
+            StrokePattern = null;
+            Stroke = StrokeType.Solid;
             Text = Name;
+        }
+        
+        public static void UpdateEntityView(Relation rel, Changelog changelog)
+        {
+            RelationUpdated?.Invoke(rel, changelog);
         }
     }
 }

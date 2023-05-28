@@ -7,7 +7,7 @@ using Attribute = LanguageEditor.Models.Attribute;
 
 namespace LanguageEditor.Views
 {
-    public partial class EntityEdit : Form
+    public partial class EntityEdit : Form, IEditingForm
     {
         private Entity _entity;
         private BindingList<Attribute> _bindingList;
@@ -43,9 +43,11 @@ namespace LanguageEditor.Views
             openFileDialog.Filter = "Images (*.bmp;*.jpg;*.gif;*.png;*.jpeg)|*.bmp;*.jpg;*.gif;*.png;*.jpeg";
             openFileDialog.RestoreDirectory = true;
             fontDialog.ShowEffects = true;
-            panelFillColor.BackColor = Color.LightGray;
-            panelStrokeColor.BackColor = Color.Black;
-            colorDialog.Color = Color.LightGray;
+            fontDialog.ShowColor = true;
+            fontDialog.Color = ColorTranslator.FromHtml(_entity.FontColor);
+            panelFillColor.BackColor = ColorTranslator.FromHtml(_entity.FillColor);
+            panelStrokeColor.BackColor = ColorTranslator.FromHtml(_entity.BorderColor);
+            colorDialog.Color = panelFillColor.BackColor;
             labelFontInfo.Text = $"{_entity.FontName} {_entity.FontSize} pt";
             textBoxEntityText.Text = _entity.Text;
 
@@ -56,7 +58,7 @@ namespace LanguageEditor.Views
         private void DataGridSetup()
         {
             dataGridView.DataSource = _bindingList;
-            dataGridView.AutoResizeColumns();
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dataGridView.Columns["Name"].HeaderText = "Имя";
             dataGridView.Columns["IsValueUnique"].HeaderText = "Уникальный";
@@ -80,7 +82,8 @@ namespace LanguageEditor.Views
                 {
                     Tag = kvp.Key,
                     Text = kvp.Value,
-                    ImageIndex = imageIndex
+                    ImageIndex = imageIndex,
+                    Selected = _entity.Figure == kvp.Key
                 });
                 imageIndex++;
             }

@@ -165,6 +165,7 @@
     <Compile Include="ElementTemplates\RotationSymbolTemplate.cs" />
     <Compile Include="Enums\EditorMode.cs" />
     <Compile Include="Enums\ElementData.cs" />
+    <Compile Include="Enums\StrokeType.cs" />
     <Compile Include="Enums\TemplateCategories.cs" />
     <Compile Include="Figures.cs" />
     <Compile Include="FontManager.cs" />
@@ -202,11 +203,18 @@
     <Compile Include="Views\EntityEdit.Designer.cs">
       <DependentUpon>EntityEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IEditingForm.cs" />
     <Compile Include="Views\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RelationEdit.Designer.cs">
+      <DependentUpon>RelationEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SingleElementView.cs">
       <SubType>Form</SubType>
@@ -235,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RelationEdit.resx">
+      <DependentUpon>RelationEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SingleElementView.resx">
       <DependentUpon>SingleElementView.cs</DependentUpon>

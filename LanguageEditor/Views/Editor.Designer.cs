@@ -61,6 +61,7 @@
             this.dgrSelectedElemData = new System.Windows.Forms.DataGridView();
             this.btnViewAttributes = new System.Windows.Forms.Button();
             this.btnViewProps = new System.Windows.Forms.Button();
+            this.btnAddRelation = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -267,10 +268,10 @@
             // 
             this.buttonAddEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAddEntity.AutoSize = true;
-            this.buttonAddEntity.Location = new System.Drawing.Point(322, 771);
+            this.buttonAddEntity.Location = new System.Drawing.Point(141, 385);
             this.buttonAddEntity.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddEntity.Name = "buttonAddEntity";
-            this.buttonAddEntity.Size = new System.Drawing.Size(137, 28);
+            this.buttonAddEntity.Size = new System.Drawing.Size(133, 28);
             this.buttonAddEntity.TabIndex = 5;
             this.buttonAddEntity.Text = "+ Новая вершина";
             this.buttonAddEntity.UseVisualStyleBackColor = true;
@@ -296,7 +297,7 @@
             this.paletteControl1.BackColor = System.Drawing.Color.White;
             this.paletteControl1.Location = new System.Drawing.Point(0, 239);
             this.paletteControl1.Name = "paletteControl1";
-            this.paletteControl1.Size = new System.Drawing.Size(302, 307);
+            this.paletteControl1.Size = new System.Drawing.Size(302, 129);
             this.paletteControl1.TabIndex = 6;
             this.paletteControl1.Text = "paletteControl1";
             // 
@@ -330,11 +331,25 @@
             this.btnViewProps.UseVisualStyleBackColor = true;
             this.btnViewProps.Click += new System.EventHandler(this.btnViewProps_Click);
             // 
+            // btnAddRelation
+            // 
+            this.btnAddRelation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddRelation.AutoSize = true;
+            this.btnAddRelation.Location = new System.Drawing.Point(0, 385);
+            this.btnAddRelation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddRelation.Name = "btnAddRelation";
+            this.btnAddRelation.Size = new System.Drawing.Size(133, 28);
+            this.btnAddRelation.TabIndex = 10;
+            this.btnAddRelation.Text = "+ Новая связь";
+            this.btnAddRelation.UseVisualStyleBackColor = true;
+            this.btnAddRelation.Click += new System.EventHandler(this.btnAddRelation_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 838);
+            this.Controls.Add(this.btnAddRelation);
             this.Controls.Add(this.btnViewProps);
             this.Controls.Add(this.btnViewAttributes);
             this.Controls.Add(this.dgrSelectedElemData);
@@ -361,6 +376,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnAddRelation;
 
         private System.Windows.Forms.Button btnViewAttributes;
         private System.Windows.Forms.Button btnViewProps;

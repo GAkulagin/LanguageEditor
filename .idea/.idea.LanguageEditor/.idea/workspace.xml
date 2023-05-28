@@ -17,7 +17,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85a420b2bf614d95a7a4ca460c46dcd35a5d48/69/f9836c64/DataGridView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/0a/71a069c7/Trace.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/ce/e533f793/GraphLinksModel`6.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/LanguageEditor/ElementTemplates/EventHandlers/SelectionHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -84,6 +83,7 @@
       <workItem from="1685099304064" duration="508000" />
       <workItem from="1685099836110" duration="1729000" />
       <workItem from="1685101606823" duration="422000" />
+      <workItem from="1685260196344" duration="17642000" />
     </task>
     <servers />
   </component>

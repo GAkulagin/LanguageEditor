@@ -66,6 +66,10 @@
             this.buttonSetFont = new System.Windows.Forms.Button();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.labelFontInfo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblAncestor = new System.Windows.Forms.Label();
+            this.btnSetAncestor = new System.Windows.Forms.Button();
+            this.btnDropAncestor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -406,12 +410,55 @@
             this.labelFontInfo.TabIndex = 33;
             this.labelFontInfo.Text = "fontinfo";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(658, 135);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label11.Size = new System.Drawing.Size(75, 17);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Родитель:";
+            // 
+            // lblAncestor
+            // 
+            this.lblAncestor.AutoSize = true;
+            this.lblAncestor.Location = new System.Drawing.Point(739, 135);
+            this.lblAncestor.MaximumSize = new System.Drawing.Size(125, 17);
+            this.lblAncestor.Name = "lblAncestor";
+            this.lblAncestor.Size = new System.Drawing.Size(75, 17);
+            this.lblAncestor.TabIndex = 35;
+            this.lblAncestor.Text = "Не указан";
+            // 
+            // btnSetAncestor
+            // 
+            this.btnSetAncestor.Location = new System.Drawing.Point(872, 129);
+            this.btnSetAncestor.Name = "btnSetAncestor";
+            this.btnSetAncestor.Size = new System.Drawing.Size(107, 28);
+            this.btnSetAncestor.TabIndex = 36;
+            this.btnSetAncestor.Text = "Выбрать";
+            this.btnSetAncestor.UseVisualStyleBackColor = true;
+            // 
+            // btnDropAncestor
+            // 
+            this.btnDropAncestor.Enabled = false;
+            this.btnDropAncestor.Location = new System.Drawing.Point(998, 129);
+            this.btnDropAncestor.Name = "btnDropAncestor";
+            this.btnDropAncestor.Size = new System.Drawing.Size(107, 28);
+            this.btnDropAncestor.TabIndex = 37;
+            this.btnDropAncestor.Text = "Сбросить";
+            this.btnDropAncestor.UseVisualStyleBackColor = true;
+            // 
             // EntityEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1291, 651);
+            this.Controls.Add(this.btnDropAncestor);
+            this.Controls.Add(this.btnSetAncestor);
+            this.Controls.Add(this.lblAncestor);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.labelFontInfo);
             this.Controls.Add(this.buttonSetFont);
             this.Controls.Add(this.label12);
@@ -455,6 +502,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblAncestor;
+        private System.Windows.Forms.Button btnSetAncestor;
+        private System.Windows.Forms.Button btnDropAncestor;
 
         private System.Windows.Forms.Button buttonSetFont;
         private System.Windows.Forms.FontDialog fontDialog;

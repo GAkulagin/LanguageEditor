@@ -39,7 +39,8 @@ namespace LanguageEditor.Views
 
             _canvas.Model = model;
 
-            Entity.EntityUpdated += OnEntityChange;
+            Entity.EntityUpdated += OnElementChange;
+            Relation.RelationUpdated += OnElementChange;
             _canvas.ChangedSelection += OnSelectionChanged;
         }
 
@@ -49,7 +50,7 @@ namespace LanguageEditor.Views
             dgrSelectedElemData.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Свойство", ReadOnly = true });
             dgrSelectedElemData.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Значение", ReadOnly = true });
             dgrSelectedElemData.RowHeadersVisible = false;
-            dgrSelectedElemData.Columns[1].Width = 105;
+            dgrSelectedElemData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void DiagramSetup()
         {
@@ -168,14 +169,14 @@ namespace LanguageEditor.Views
             dgrSelectedElemData.Refresh();
         }
 
-        private void OnEntityChange(Entity e, Changelog changelog)
+        private void OnElementChange(object element, Changelog changelog)
         {
             _canvas.Model.Commit(m =>
             {
                 foreach (var record in changelog.Log)
-                    m.Set(e, record.Key, record.Value);
+                    m.Set(element, record.Key, record.Value);
                 
-            }, "OnEntityChange");
+            }, "OnElementChange");
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -267,6 +268,15 @@ namespace LanguageEditor.Views
             ClearDataGrid();
             PopulateGridView(_selectedElemAttrs);
             dgrSelectedElemData.Columns[0].HeaderText = "Атрибут";
+        }
+
+        private void btnAddRelation_Click(object sender, EventArgs e)
+        {
+            var rel = new Relation();
+            rel.SourceEntities = ((DiagramModel)_canvas.Model).Data.Entities;
+            rel.TargetEntities = rel.SourceEntities;
+            var form = new RelationEdit(rel);
+            form.Show();
         }
     }
 }
