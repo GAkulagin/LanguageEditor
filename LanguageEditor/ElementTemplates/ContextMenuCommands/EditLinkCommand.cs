@@ -5,16 +5,16 @@ using Northwoods.Go;
 
 namespace LanguageEditor.ElementTemplates.ContextMenuCommands
 {
-    public class ViewEntityCommand : IContextMenuCommand
+    public class EditLinkCommand : IContextMenuCommand
     {
         public Action<InputEvent, GraphObject> GetCommand()
         {
             return (e, obj) =>
             {
-                if (obj.Part.Data is Entity entity)
+                if (obj.Part.Data is Relation link)
                 {
-                    var form = new SingleElementView(entity);
-                    form.Text = entity.Name;
+                    var form = new RelationEdit(link);
+                    form.Entities = ((DiagramModel)obj.Diagram.Model).Data.Entities;
                     form.Show();
                 }
             };

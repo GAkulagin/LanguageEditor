@@ -17,7 +17,18 @@ namespace LanguageEditor.Views
         
         public BindingList<Attribute> Attributes => _bindingList;
 
-        public RelationEdit(Relation relation, List<Entity> entities)
+        public List<Entity> Entities
+        {
+            get => _entities;
+            set
+            {
+                if(value != null) _entities = value;
+                ComboBoxSetup(cboxSource, _relation.From);
+                ComboBoxSetup(cboxTarget, _relation.To);
+            }
+        }
+
+        public RelationEdit(Relation relation)
         {
             InitializeComponent();
 
@@ -27,7 +38,6 @@ namespace LanguageEditor.Views
                 AllowNew = false
             };
             _changelog = new Changelog();
-            if (entities != null) _entities = entities;
 
             ControlsSetup();
         }
@@ -47,8 +57,6 @@ namespace LanguageEditor.Views
             ListViewSetup(lvFromArrow, DisplayedDataLists.FromArrows, _relation.FromArrow);
             ListViewSetup(lvToArrow, DisplayedDataLists.ToArrows, _relation.ToArrow);
             ListViewSetup(lvStroke, DisplayedDataLists.StrokeTypes, _relation.Stroke);
-            ComboBoxSetup(cboxSource, _relation.From);
-            ComboBoxSetup(cboxTarget, _relation.To);
             DataGridSetup();
         }
         private void DataGridSetup()

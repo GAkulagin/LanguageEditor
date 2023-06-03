@@ -157,8 +157,10 @@ namespace LanguageEditor.Views
         private void SetSelectedRelation(Relation relation)
         {
             _selectedElemProps.Add("Имя", relation.Name);
-            _selectedElemProps.Add("Источник", relation.From);
-            _selectedElemProps.Add("Приемник", relation.To);
+            _selectedElemProps.Add("Источник", 
+                ((DiagramModel)_canvas.Model).Data.Entities.Single(e => e.Key == relation.From));
+            _selectedElemProps.Add("Приемник", 
+                ((DiagramModel)_canvas.Model).Data.Entities.Single(e => e.Key == relation.To));
             _selectedElemProps.Add("Шрифт", relation.FontName);
             _selectedElemProps.Add("Размер шрифта", relation.FontSize);
             
@@ -288,7 +290,8 @@ namespace LanguageEditor.Views
         private void новаяСвязьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var rel = new Relation();
-            var form = new RelationEdit(rel, ((DiagramModel)_canvas.Model).Data.Entities);
+            var form = new RelationEdit(rel);
+            form.Entities = ((DiagramModel)_canvas.Model).Data.Entities;
             form.Show();
             
             ((DiagramModel)_canvas.Model).AddLinkData(rel);

@@ -1,4 +1,5 @@
-﻿using Northwoods.Go;
+﻿using LanguageEditor.ElementTemplates.ContextMenuCommands;
+using Northwoods.Go;
 
 namespace LanguageEditor.ElementTemplates
 {
@@ -7,6 +8,13 @@ namespace LanguageEditor.ElementTemplates
         public Part GetTemplate()
         {
             return new Link()
+                {
+                    ContextMenu = new ContextMenuAdornment(
+                        new EditLinkCommand(), 
+                        new RemoveLinkCommand(),
+                        new ViewRelationCommand()
+                    ).GetAdornment()
+                }
                 .Add(
                     new Shape(){ Width = 2 }
                         .Bind("StrokeDashArray", "StrokePattern")

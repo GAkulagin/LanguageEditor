@@ -19,6 +19,8 @@ namespace LanguageEditor.Models
         public DiagramModel(ModelData data)
         {
             Data = data;
+            NodeDataSource = data.Entities;
+            LinkDataSource = data.Relations;
         }
 
 
@@ -46,7 +48,6 @@ namespace LanguageEditor.Models
             model.Entities.Add(entity1);
 
             DiagramModel dmodel = new DiagramModel(model);
-            dmodel.NodeDataSource = model.Entities;
 
             return dmodel;
         }
@@ -60,7 +61,6 @@ namespace LanguageEditor.Models
                 model.Entities.Add(new Entity() { Figure = kvp.Key });
 
             DiagramModel dmodel = new DiagramModel(model);
-            dmodel.NodeDataSource = model.Entities;
 
             return dmodel;
         }
