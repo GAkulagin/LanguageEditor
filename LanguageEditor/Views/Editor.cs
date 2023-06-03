@@ -74,6 +74,20 @@ namespace LanguageEditor.Views
         private void MetamodelingSetup()
         {
             _canvas.NodeTemplate = new MetamodelEntityTemplate().GetTemplate();
+            _canvas.LinkTemplate = (Link)new MetamodelRelationTemplate().GetTemplate();
+            
+            palette.Diagram.NodeTemplate = new Node("Horizontal")
+                .Add(
+                    new Shape { Width = 100, Height = 50, Fill = "lightgray" }
+                        .Bind("Figure"),
+                    new TextBlock().Bind("Text")
+                );
+            var md = new ModelData();
+            md.Entities.Add(new Entity(){Text = "Новая вершина", Figure = "RoundedRectangle"});
+            md.Entities.Add(new Entity(){Text = "Новая связь", Figure = "Arrow"});
+            var model = new DiagramModel(md);
+            model.NodeDataSource = md.Entities;
+            palette.Diagram.Model = model;
         }
         private void ModelingSetup()
         {
@@ -82,6 +96,7 @@ namespace LanguageEditor.Views
                 { TemplateCategories.Default, new ModelEntityTemplate().GetTemplate() },
                 { TemplateCategories.Picture, new PictureTemplate().GetTemplate() }
             };
+            _canvas.LinkTemplate = (Link)new ModelRelationTemplate().GetTemplate();
         }
 
         private void OnSelectionChanged(object sender, DiagramEvent args)
@@ -133,7 +148,7 @@ namespace LanguageEditor.Views
             _selectedElemProps.Add("Изображение", entity.Image);
             _selectedElemProps.Add("Ширина", entity.Width);
             _selectedElemProps.Add("Высота", entity.Height);
-            _selectedElemProps.Add("Угол поворота", entity.Angle);
+            _selectedElemProps.Add("Угол поворота", Math.Round(entity.Angle, 2));
             _selectedElemProps.Add("Шрифт", entity.FontName);
             _selectedElemProps.Add("Размер шрифта", entity.FontSize);
             
@@ -245,15 +260,6 @@ namespace LanguageEditor.Views
             _canvas.Grid.Visible = !_canvas.Grid.Visible;
         }
 
-        private void buttonAddEntity_Click(object sender, EventArgs e)
-        {
-            var entity = new Entity();
-            var form = new EntityEdit(entity);
-            form.Show();
-            
-            _canvas.Model.AddNodeData(entity);
-        }
-
         private void btnViewProps_Click(object sender, EventArgs e)
         {
             _selectedElemViewMode = ElementData.Properties;
@@ -270,13 +276,22 @@ namespace LanguageEditor.Views
             dgrSelectedElemData.Columns[0].HeaderText = "Атрибут";
         }
 
-        private void btnAddRelation_Click(object sender, EventArgs e)
+        private void новаяСущностьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var entity = new Entity();
+            var form = new EntityEdit(entity);
+            form.Show();
+            
+            _canvas.Model.AddNodeData(entity);
+        }
+
+        private void новаяСвязьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var rel = new Relation();
-            rel.SourceEntities = ((DiagramModel)_canvas.Model).Data.Entities;
-            rel.TargetEntities = rel.SourceEntities;
-            var form = new RelationEdit(rel);
+            var form = new RelationEdit(rel, ((DiagramModel)_canvas.Model).Data.Entities);
             form.Show();
+            
+            ((DiagramModel)_canvas.Model).AddLinkData(rel);
         }
     }
 }

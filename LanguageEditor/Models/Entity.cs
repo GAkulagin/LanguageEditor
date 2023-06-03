@@ -82,5 +82,10 @@ namespace LanguageEditor.Models
         {
             EntityUpdated?.Invoke(e, changelog);
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

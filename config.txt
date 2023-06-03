@@ -1,6 +1,6 @@
 attributeIdCounter=128
 poleIdCounter=78
-relationIdCounter=0
-hyperedgeIdCounter=0
+relationIdCounter=1
+hyperedgeIdCounter=1
 entityIdCounter=164
 modelIdCounter=42

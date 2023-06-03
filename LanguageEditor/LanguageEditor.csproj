@@ -160,7 +160,9 @@
     <Compile Include="ElementTemplates\ContextMenuCommands\ViewEntityCommand.cs" />
     <Compile Include="ElementTemplates\ITemplate.cs" />
     <Compile Include="ElementTemplates\MetamodelEntityTemplate.cs" />
+    <Compile Include="ElementTemplates\MetamodelRelationTemplate.cs" />
     <Compile Include="ElementTemplates\ModelEntityTemplate.cs" />
+    <Compile Include="ElementTemplates\ModelRelationTemplate.cs" />
     <Compile Include="ElementTemplates\PictureTemplate.cs" />
     <Compile Include="ElementTemplates\RotationSymbolTemplate.cs" />
     <Compile Include="Enums\EditorMode.cs" />

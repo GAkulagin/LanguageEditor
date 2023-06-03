@@ -333,24 +333,29 @@ namespace LanguageEditor.Views
             // 
             // cboxSource
             // 
+            this.cboxSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSource.FormattingEnabled = true;
             this.cboxSource.Location = new System.Drawing.Point(325, 59);
             this.cboxSource.Name = "cboxSource";
             this.cboxSource.Size = new System.Drawing.Size(257, 24);
             this.cboxSource.TabIndex = 49;
+            this.cboxSource.SelectedIndexChanged += new System.EventHandler(this.cboxSource_SelectedIndexChanged);
             // 
             // cboxTarget
             // 
+            this.cboxTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxTarget.FormattingEnabled = true;
             this.cboxTarget.Location = new System.Drawing.Point(325, 97);
             this.cboxTarget.Name = "cboxTarget";
             this.cboxTarget.Size = new System.Drawing.Size(257, 24);
             this.cboxTarget.TabIndex = 50;
+            this.cboxTarget.SelectedIndexChanged += new System.EventHandler(this.cboxTarget_SelectedIndexChanged);
             // 
             // RelationEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1291, 651);
             this.Controls.Add(this.cboxTarget);
             this.Controls.Add(this.cboxSource);
@@ -377,19 +382,20 @@ namespace LanguageEditor.Views
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Location = new System.Drawing.Point(15, 15);
             this.MaximizeBox = false;
             this.Name = "RelationEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Редактор связи";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttrs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboxSource;
         private System.Windows.Forms.ComboBox cboxTarget;
+
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
 
         private System.Windows.Forms.ImageList imglistStroke;
         private System.Windows.Forms.ImageList imglistToArrows;

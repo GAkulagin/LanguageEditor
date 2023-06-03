@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Northwoods.Go;
 
 namespace LanguageEditor.Models
@@ -49,6 +45,7 @@ namespace LanguageEditor.Models
         public Relation()
         {
             IdSetter.SetId(this);
+            Name = "Relation" + Key;
             FontName = "Arial";
             FontSize = 12.0f;
             FontColor = "#000000";

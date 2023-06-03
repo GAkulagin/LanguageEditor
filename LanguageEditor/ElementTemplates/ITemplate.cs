@@ -4,6 +4,6 @@ namespace LanguageEditor.ElementTemplates
 {
     interface ITemplate
     {
-        Part GetTemplate();
+        Part GetTemplate ();
     }
 }

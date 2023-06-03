@@ -46,6 +46,7 @@
             this.модельтекстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateMetamodelBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.metamodelContextMenu.SuspendLayout();
             this.modelContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -186,11 +187,22 @@
             this.CreateMetamodelBtn.UseVisualStyleBackColor = true;
             this.CreateMetamodelBtn.Click += new System.EventHandler(this.CreateMetamodelBtn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(651, 478);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 34);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Новая модель";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CreateMetamodelBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.modelsListView);
@@ -208,6 +220,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button button1;
 
         #endregion
 

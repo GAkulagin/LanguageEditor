@@ -109,7 +109,7 @@ namespace LanguageEditor.Views
 
         private void CreateMetamodelBtn_Click(object sender, EventArgs e)
         {
-            Editor editorForm = new Editor(DiagramModel.GetPredefinedFigures(), EditorMode.Modeling);
+            Editor editorForm = new Editor(DiagramModel.GetPredefinedFigures(), EditorMode.Metamodeling);
             editorForm.Show();
         }
 

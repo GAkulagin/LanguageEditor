@@ -54,14 +54,15 @@
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сеткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonAddEntity = new System.Windows.Forms.Button();
+            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новаяСущностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новаяСвязьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overviewControl = new Northwoods.Go.WinForms.OverviewControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.paletteControl1 = new Northwoods.Go.WinForms.PaletteControl();
+            this.palette = new Northwoods.Go.WinForms.PaletteControl();
             this.dgrSelectedElemData = new System.Windows.Forms.DataGridView();
             this.btnViewAttributes = new System.Windows.Forms.Button();
             this.btnViewProps = new System.Windows.Forms.Button();
-            this.btnAddRelation = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -220,7 +221,7 @@
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.файлToolStripMenuItem, this.видToolStripMenuItem });
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.файлToolStripMenuItem, this.видToolStripMenuItem, this.добавитьToolStripMenuItem });
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1349, 28);
@@ -264,18 +265,26 @@
             this.сеткаToolStripMenuItem.Text = "Сетка";
             this.сеткаToolStripMenuItem.Click += new System.EventHandler(this.сеткаToolStripMenuItem_Click);
             // 
-            // buttonAddEntity
+            // добавитьToolStripMenuItem
             // 
-            this.buttonAddEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAddEntity.AutoSize = true;
-            this.buttonAddEntity.Location = new System.Drawing.Point(141, 385);
-            this.buttonAddEntity.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAddEntity.Name = "buttonAddEntity";
-            this.buttonAddEntity.Size = new System.Drawing.Size(133, 28);
-            this.buttonAddEntity.TabIndex = 5;
-            this.buttonAddEntity.Text = "+ Новая вершина";
-            this.buttonAddEntity.UseVisualStyleBackColor = true;
-            this.buttonAddEntity.Click += new System.EventHandler(this.buttonAddEntity_Click);
+            this.добавитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.новаяСущностьToolStripMenuItem, this.новаяСвязьToolStripMenuItem });
+            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.добавитьToolStripMenuItem.Text = "Добавить";
+            // 
+            // новаяСущностьToolStripMenuItem
+            // 
+            this.новаяСущностьToolStripMenuItem.Name = "новаяСущностьToolStripMenuItem";
+            this.новаяСущностьToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+            this.новаяСущностьToolStripMenuItem.Text = "Новая сущность";
+            this.новаяСущностьToolStripMenuItem.Click += new System.EventHandler(this.новаяСущностьToolStripMenuItem_Click);
+            // 
+            // новаяСвязьToolStripMenuItem
+            // 
+            this.новаяСвязьToolStripMenuItem.Name = "новаяСвязьToolStripMenuItem";
+            this.новаяСвязьToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+            this.новаяСвязьToolStripMenuItem.Text = "Новая связь";
+            this.новаяСвязьToolStripMenuItem.Click += new System.EventHandler(this.новаяСвязьToolStripMenuItem_Click);
             // 
             // overviewControl
             // 
@@ -292,14 +301,13 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // paletteControl1
+            // palette
             // 
-            this.paletteControl1.BackColor = System.Drawing.Color.White;
-            this.paletteControl1.Location = new System.Drawing.Point(0, 239);
-            this.paletteControl1.Name = "paletteControl1";
-            this.paletteControl1.Size = new System.Drawing.Size(302, 129);
-            this.paletteControl1.TabIndex = 6;
-            this.paletteControl1.Text = "paletteControl1";
+            this.palette.BackColor = System.Drawing.Color.White;
+            this.palette.Location = new System.Drawing.Point(0, 239);
+            this.palette.Name = "palette";
+            this.palette.Size = new System.Drawing.Size(302, 307);
+            this.palette.TabIndex = 6;
             // 
             // dgrSelectedElemData
             // 
@@ -331,31 +339,16 @@
             this.btnViewProps.UseVisualStyleBackColor = true;
             this.btnViewProps.Click += new System.EventHandler(this.btnViewProps_Click);
             // 
-            // btnAddRelation
-            // 
-            this.btnAddRelation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddRelation.AutoSize = true;
-            this.btnAddRelation.Location = new System.Drawing.Point(0, 385);
-            this.btnAddRelation.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddRelation.Name = "btnAddRelation";
-            this.btnAddRelation.Size = new System.Drawing.Size(133, 28);
-            this.btnAddRelation.TabIndex = 10;
-            this.btnAddRelation.Text = "+ Новая связь";
-            this.btnAddRelation.UseVisualStyleBackColor = true;
-            this.btnAddRelation.Click += new System.EventHandler(this.btnAddRelation_Click);
-            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1349, 838);
-            this.Controls.Add(this.btnAddRelation);
             this.Controls.Add(this.btnViewProps);
             this.Controls.Add(this.btnViewAttributes);
             this.Controls.Add(this.dgrSelectedElemData);
-            this.Controls.Add(this.paletteControl1);
+            this.Controls.Add(this.palette);
             this.Controls.Add(this.overviewControl);
-            this.Controls.Add(this.buttonAddEntity);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip);
@@ -377,14 +370,16 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Button btnAddRelation;
+        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem новаяСущностьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem новаяСвязьToolStripMenuItem;
 
         private System.Windows.Forms.Button btnViewAttributes;
         private System.Windows.Forms.Button btnViewProps;
 
         private System.Windows.Forms.DataGridView dgrSelectedElemData;
 
-        private Northwoods.Go.WinForms.PaletteControl paletteControl1;
+        private Northwoods.Go.WinForms.PaletteControl palette;
 
         #endregion
 
@@ -412,7 +407,6 @@
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сеткаToolStripMenuItem;
-        private System.Windows.Forms.Button buttonAddEntity;
         private Northwoods.Go.WinForms.OverviewControl overviewControl;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }

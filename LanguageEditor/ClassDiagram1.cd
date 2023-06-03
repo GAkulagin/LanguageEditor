@@ -1,71 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="LanguageEditor.Models.Attribute&lt;T&gt;">
-    <Position X="2.75" Y="5.75" Width="2" />
+  <Class Name="LanguageEditor.RepositoryClasses.XmlPackager">
+    <Position X="1" Y="2" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAACBAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAgAAAAAAA=</HashCode>
-      <FileName>Models\Attribute.cs</FileName>
+      <HashCode>AAAEBAAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>RepositoryClasses\XmlPackager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="LanguageEditor.Models.Entity">
-    <Position X="2.25" Y="2.5" Width="2.5" />
+    <Position X="7" Y="1.25" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="LanguageEditor.Models.Entity.UpdateHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Entity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AQACAAAAABAAAAgAAAAAABQQAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AwBECIAABBAAAAgAAAAAAlQaAACgEBAAAUAAAAkCAAA=</HashCode>
       <FileName>Models\Entity.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="LanguageEditor.Models.Pole">
-    <Position X="10.5" Y="2.5" Width="1.5" />
+  <Interface Name="LanguageEditor.RepositoryClasses.IPackager">
+    <Position X="3.5" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Pole.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="LanguageEditor.Models.Hyperedge">
-    <Position X="5.25" Y="2.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAgAAAAAAAQQAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Hyperedge.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="LanguageEditor.Models.Relation">
-    <Position X="7.75" Y="2.5" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAIAAAQQAAAAgAAAAAAAAIAACAA=</HashCode>
-      <FileName>Models\Relation.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="LanguageEditor.Models.ModelData">
-    <Position X="12.25" Y="2.5" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>QAACAQAAAAAAAAAAAAgAAAQQAAAAAAAAAAEAAAAAAAE=</HashCode>
-      <FileName>Models\ModelData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Interface Name="LanguageEditor.Models.IAttribute" Collapsed="true">
-    <Position X="6" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACBAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
-      <FileName>Models\IAttribute.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="LanguageEditor.Models.IAttributedElement">
-    <Position X="2.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\IAttributedElement.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="LanguageEditor.Models.IPoledElement">
-    <Position X="4.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\IPoledElement.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>RepositoryClasses\IPackager.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

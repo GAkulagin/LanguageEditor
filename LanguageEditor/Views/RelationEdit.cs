@@ -13,10 +13,11 @@ namespace LanguageEditor.Views
         private Relation _relation;
         private BindingList<Attribute> _bindingList;
         private Changelog _changelog;
+        private List<Entity> _entities = new List<Entity>();
         
         public BindingList<Attribute> Attributes => _bindingList;
-        
-        public RelationEdit(Relation relation)
+
+        public RelationEdit(Relation relation, List<Entity> entities)
         {
             InitializeComponent();
 
@@ -26,7 +27,8 @@ namespace LanguageEditor.Views
                 AllowNew = false
             };
             _changelog = new Changelog();
-            
+            if (entities != null) _entities = entities;
+
             ControlsSetup();
         }
 
@@ -45,8 +47,8 @@ namespace LanguageEditor.Views
             ListViewSetup(lvFromArrow, DisplayedDataLists.FromArrows, _relation.FromArrow);
             ListViewSetup(lvToArrow, DisplayedDataLists.ToArrows, _relation.ToArrow);
             ListViewSetup(lvStroke, DisplayedDataLists.StrokeTypes, _relation.Stroke);
-            ComboBoxSetup(cboxSource, _relation.SourceEntities);
-            ComboBoxSetup(cboxTarget, _relation.TargetEntities);
+            ComboBoxSetup(cboxSource, _relation.From);
+            ComboBoxSetup(cboxTarget, _relation.To);
             DataGridSetup();
         }
         private void DataGridSetup()
@@ -81,32 +83,33 @@ namespace LanguageEditor.Views
             }
         }
 
-        private void ComboBoxSetup(ComboBox cbox, IEnumerable<Entity> entities)
+        private void ComboBoxSetup(ComboBox cbox, long current)
         {
-            foreach (var entity in entities)
+            for (int i = 0; i < _entities.Count; i++)
             {
-                cbox.Items.Add(entity.Name);
+                cbox.Items.Add(_entities[i]);
+                if (current == _entities[i].Key) cbox.SelectedIndex = i;
             }
+            btnSave.Enabled = cbox.SelectedIndex != -1;
         }
 
         private void SaveRelation()
         {
             _relation.Name = textBoxName.Text;
-            
-            _changelog.Add("FromArrow", "");
-            _changelog.Add("ToArrow", "OpenTriangle");
-            _changelog.Add("StrokePattern", null);
             _changelog.Add("Text", tbRelationText.Text);
-            
+
             if (lvFromArrow.SelectedItems.Count > 0) 
                 _changelog.Add("FromArrow", lvFromArrow.SelectedItems[0].Tag.ToString());
             if (lvStroke.SelectedItems.Count > 0)
-                //TODO rewrite this line, won't work now
-                _changelog.Add("StrokePattern", lvStroke.SelectedItems[0].Tag as float[]);
+            {
+                _relation.Stroke = lvStroke.SelectedItems[0].Tag.ToString();
+                _changelog.Add("StrokePattern", StrokeType.GetPatternArray(_relation.Stroke));
+            }
             if (lvToArrow.SelectedItems.Count > 0)
                 _changelog.Add("ToArrow", lvToArrow.SelectedItems[0].Tag.ToString());
                         
-            //TODO: add source & target nodes update
+            _changelog.Add("From", ((Entity)cboxSource.SelectedItem).Key);
+            _changelog.Add("To", ((Entity)cboxTarget.SelectedItem).Key);
 
             Relation.UpdateEntityView(_relation, _changelog);
         }
@@ -158,22 +161,24 @@ namespace LanguageEditor.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //SaveRelation();
+            SaveRelation();
             Close();
         }
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxName.Text))
-            {
-                btnSave.Enabled = false;
-                labelNameInvalidMsg.Visible = true;
-            }
-            else
-            {
-                btnSave.Enabled = true;
-                labelNameInvalidMsg.Visible = false;
-            }
+            btnSave.Enabled = !String.IsNullOrEmpty(textBoxName.Text);
+            labelNameInvalidMsg.Visible = String.IsNullOrEmpty(textBoxName.Text);
+        }
+
+        private void cboxSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = cboxSource.SelectedIndex != -1 && cboxTarget.SelectedIndex != -1;
+        }
+
+        private void cboxTarget_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = cboxSource.SelectedIndex != -1 && cboxTarget.SelectedIndex != -1;
         }
     }
 }

@@ -564,6 +564,38 @@ namespace Northwoods.Go.Extensions
                 fig.Add(new PathSegment(SegmentType.Line, (.20 + cx) * w, 0.95 * h));
                 return geo;
             });
+            
+            FigureParameter.SetFigureParameter("Arrow", 0, new FigureParameter("ArrowheadWidth", .3, .01, .99));
+            FigureParameter.SetFigureParameter("Arrow", 1, new FigureParameter("TailHeight", .3, .01, .99));
+            Shape.DefineFigureGenerator("Arrow", (shape, w, h) => {
+                var param1 = (shape != null) ? shape.Parameter1 : double.NaN;  // % width of arrowhead
+                if (double.IsNaN(param1)) param1 = .3;
+                var param2 = (shape != null) ? shape.Parameter2 : double.NaN;  // % height of tail
+                if (double.IsNaN(param2)) param2 = .3;
+                var x = (1 - param1) * w;
+                var y1 = (.5 - param2 / 2) * h;
+                var y2 = (.5 + param2 / 2) * h;
+                var geo = new Geometry();
+                var fig = new PathFigure(0, y1, true);
+                geo.Add(fig);
+                fig.Add(new PathSegment(SegmentType.Line, x, y1));
+                fig.Add(new PathSegment(SegmentType.Line, x, 0));
+                fig.Add(new PathSegment(SegmentType.Line, x, 0));
+                fig.Add(new PathSegment(SegmentType.Line, w, .5 * h));
+                fig.Add(new PathSegment(SegmentType.Line, x, h));
+                fig.Add(new PathSegment(SegmentType.Line, x, y2));
+                fig.Add(new PathSegment(SegmentType.Line, 0, y2).Close());
+                geo.Spot1 = new Spot(0, y1 / h);
+                var tempPoint = new Point();
+                var temp = GetIntersection(0, y2 / h,
+                    1, y2 / h,
+                    x / w, 1,
+                    1, .5,
+                    out tempPoint);
+                geo.Spot2 = new Spot(temp.X, temp.Y);
+                return geo;
+            });
+
         }
     }
 }
