@@ -103,7 +103,6 @@ namespace LanguageEditor.Views
 
         private void SaveRelation()
         {
-            _relation.Name = textBoxName.Text;
             _changelog.Add("Text", tbRelationText.Text);
 
             if (lvFromArrow.SelectedItems.Count > 0) 
@@ -118,6 +117,7 @@ namespace LanguageEditor.Views
                         
             _changelog.Add("From", ((Entity)cboxSource.SelectedItem).Key);
             _changelog.Add("To", ((Entity)cboxTarget.SelectedItem).Key);
+            _changelog.Add("Name", textBoxName.Text);
 
             Relation.UpdateEntityView(_relation, _changelog);
         }

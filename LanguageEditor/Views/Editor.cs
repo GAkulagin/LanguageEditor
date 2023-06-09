@@ -84,9 +84,7 @@ namespace LanguageEditor.Views
                 );
             var md = new ModelData();
             md.Entities.Add(new Entity(){Text = "Новая вершина", Figure = "RoundedRectangle"});
-            md.Entities.Add(new Entity(){Text = "Новая связь", Figure = "Arrow"});
             var model = new DiagramModel(md);
-            model.NodeDataSource = md.Entities;
             palette.Diagram.Model = model;
         }
         private void ModelingSetup()
@@ -138,6 +136,7 @@ namespace LanguageEditor.Views
                     break;
             }
         }
+        
         private void SetSelectedEntity(Entity entity)
         {
             _selectedElemProps.Add("Имя", entity.Name);

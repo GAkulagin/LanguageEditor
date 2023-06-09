@@ -13,9 +13,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/09/c499d1e1/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/32/3b4e6b43/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/50/55e430eb/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/76d7208923274e2dbcaefbab4db188642863a0/dc/f9543754/XmlReflectionImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85a420b2bf614d95a7a4ca460c46dcd35a5d48/69/f9836c64/DataGridView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/0a/71a069c7/Trace.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/87/5d2cf804/ExtensionMethods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/8e/bbb9a923/PartManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/c4/88f11fa2/Model`3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9fb66cafeeae4eb9b2722c93c23e7cddeec00/ce/e533f793/GraphLinksModel`6.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -91,6 +95,14 @@
       <workItem from="1685777003951" duration="4255000" />
       <workItem from="1685782887301" duration="3357000" />
       <workItem from="1685790690113" duration="3413000" />
+      <workItem from="1686035729351" duration="9306000" />
+      <workItem from="1686048676200" duration="313000" />
+      <workItem from="1686215838297" duration="2238000" />
+      <workItem from="1686218115727" duration="5465000" />
+      <workItem from="1686224932879" duration="680000" />
+      <workItem from="1686226050865" duration="484000" />
+      <workItem from="1686236377847" duration="237000" />
+      <workItem from="1686295366623" duration="2688000" />
     </task>
     <servers />
   </component>

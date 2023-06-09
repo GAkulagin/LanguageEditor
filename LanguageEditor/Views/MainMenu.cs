@@ -22,12 +22,17 @@ namespace LanguageEditor.Views
         {
             foreach(var model in models)
             {
-                var item = new ListViewItem();
-                item.Text = model.Name;
-                item.ImageIndex = 0;
-
-                view.Items.Add(item);
+                AddListViewItem(view, model);
             }
+        }
+
+        private void AddListViewItem(ListView view, ModelFile model)
+        {
+            var item = new ListViewItem();
+            item.Text = model.Name;
+            item.ImageIndex = 0;
+
+            view.Items.Add(item);
         }
 
         private void metamodelsListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +49,7 @@ namespace LanguageEditor.Views
         // event of metamodelListview
         private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         // event of metamodelListview
@@ -56,7 +61,17 @@ namespace LanguageEditor.Views
         // event of metamodelListview
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show(
+                $"Вы действительно хотите удалить проект {metamodelsListView.SelectedItems[0].Text} и все связанные модели?",
+                "Удаление проекта", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (result == DialogResult.Yes)
+            {
+                var idx = metamodelsListView.SelectedIndices[0];
+                FileExtractor.DeleteProject(_metamodels[idx]);
+                metamodelsListView.Items.RemoveAt(idx);
+                _metamodels.RemoveAt(idx);
+            }
         }
 
         private void metamodelsListView_MouseClick_1(object sender, MouseEventArgs e)
@@ -109,12 +124,26 @@ namespace LanguageEditor.Views
 
         private void CreateMetamodelBtn_Click(object sender, EventArgs e)
         {
-            Editor editorForm = new Editor(DiagramModel.GetPredefinedFigures(), EditorMode.Metamodeling);
-            editorForm.Show();
+            var data = new ModelData();
+            FileExtractor.CreateProject(data);
+            var editor = new Editor(new DiagramModel(data), EditorMode.Metamodeling);
+            var mf = new ModelFile(data.FilePath);
+            
+            AddListViewItem(metamodelsListView, mf);
+            _metamodels.Add(mf);
+            
+            editor.Show();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            if (!FileExtractor.EnsureDataDirExists())
+            {
+                MessageBox.Show(
+                    $"Не удалось обнаружить данные приложения; директория {FileExtractor.GetMainDirPath()} не найдена.",
+                    "Ошибка запуска", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
             _metamodels = FileExtractor.GetModelFiles();
             SetListViewItems(metamodelsListView, _metamodels);
             

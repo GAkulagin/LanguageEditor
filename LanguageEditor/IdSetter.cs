@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LanguageEditor.RepositoryClasses;
 
 namespace LanguageEditor
 {
@@ -16,9 +17,7 @@ namespace LanguageEditor
         private static long hyperedgeIdCounter;
         private static long entityIdCounter;
         private static long modelIdCounter;
-
-        private static string configPath = @"C:\Users\Professional\Desktop\учеба\Курсовые работы\4 курс\приложение\LanguageEditor\config.txt";
-
+        
         public static void SetId(Models.Attribute attribute)
         {
             attribute.Key = attributeIdCounter;
@@ -58,22 +57,14 @@ namespace LanguageEditor
 
         public static void Init()
         {
-            string[] lines = File.ReadAllLines(configPath);
-            var dict = new Dictionary<string, long>();
+            var idList = FileExtractor.GetObjectIdCounters();
 
-            foreach(string line in lines)
-            {
-                string[] kvp = line.Split('=');
-
-                dict.Add(kvp[0], Int64.Parse(kvp[1]));
-            }
-
-            attributeIdCounter = dict["attributeIdCounter"];
-            poleIdCounter = dict["poleIdCounter"];
-            relationIdCounter = dict["relationIdCounter"];
-            hyperedgeIdCounter = dict["hyperedgeIdCounter"];
-            entityIdCounter = dict["entityIdCounter"];
-            modelIdCounter = dict["modelIdCounter"];
+            attributeIdCounter = idList[0];
+            poleIdCounter = idList[1];
+            relationIdCounter = idList[2];
+            hyperedgeIdCounter = idList[3];
+            entityIdCounter = idList[4];
+            modelIdCounter = idList[5];
         }
 
         public static void Save()
@@ -88,7 +79,7 @@ namespace LanguageEditor
                 $"modelIdCounter={modelIdCounter}"
             };
 
-            File.WriteAllLines(configPath, lines);
+            FileExtractor.WriteObjectIdCounters(lines);
         }
     }
 }

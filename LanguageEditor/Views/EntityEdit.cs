@@ -91,7 +91,6 @@ namespace LanguageEditor.Views
         
         private void SaveEntity()
         {
-            _entity.Name = textBoxName.Text;
             _entity.MaxCount = (int)numericUpDownMaxCount.Value;
             _entity.IsAbstract = checkBoxIsAbstract.Checked;
             _entity.CanSetMaxCount = checkBoxCanSetMaxCount.Checked;
@@ -101,6 +100,7 @@ namespace LanguageEditor.Views
                 newfigure = listViewShape.SelectedItems[0].Tag.ToString();
             _changelog.Add("Figure", newfigure);
             _changelog.Add("Text", textBoxEntityText.Text);
+            _changelog.Add("Name", textBoxName.Text);
 
             Entity.UpdateEntityView(_entity, _changelog);
         }

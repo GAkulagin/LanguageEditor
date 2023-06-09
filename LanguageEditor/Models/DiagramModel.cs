@@ -1,4 +1,7 @@
-﻿using Northwoods.Go.Models;
+﻿using System;
+using System.Threading;
+using System.Windows.Forms;
+using Northwoods.Go.Models;
 
 namespace LanguageEditor.Models
 {
@@ -19,6 +22,12 @@ namespace LanguageEditor.Models
         public DiagramModel(ModelData data)
         {
             Data = data;
+            MakeUniqueKeyFunction = (model, entity) =>
+            {
+                IdSetter.SetId(entity);
+                entity.Name = "Entity" + entity.Key;
+                return entity.Key;
+            };
             NodeDataSource = data.Entities;
             LinkDataSource = data.Relations;
         }
