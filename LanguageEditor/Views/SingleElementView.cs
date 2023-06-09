@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using LanguageEditor.ElementTemplates;
 using LanguageEditor.Models;
 using Northwoods.Go;
@@ -39,7 +40,11 @@ namespace LanguageEditor.Views
         {
             _canvas = diagramControl.Diagram;
             _canvas.Grid.Visible = true;
-            _canvas.NodeTemplate = new ModelEntityTemplate().GetTemplate();
+            _canvas.NodeTemplateMap = new Dictionary<string, Part>
+            {
+                { TemplateCategories.Default, new ModelEntityTemplate().GetTemplate() },
+                { TemplateCategories.Picture, new PictureTemplate().GetTemplate() }
+            };
             _canvas.LinkTemplate = (Link)new ModelRelationTemplate().GetTemplate();
             _canvas.ToolManager.DraggingTool.IsEnabled = false;
             _canvas.ToolManager.ContextMenuTool.IsEnabled = false;

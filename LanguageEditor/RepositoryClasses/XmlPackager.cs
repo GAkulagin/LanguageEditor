@@ -25,7 +25,7 @@ namespace LanguageEditor.RepositoryClasses
         {
             try
             {
-                using (FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate))
+                using (var fs = new FileStream(filepath, FileMode.Truncate, FileAccess.Write))
                 {
                     _xmlserializer.Serialize(fs, model.Data);
                 }
