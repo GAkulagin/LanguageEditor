@@ -17,14 +17,15 @@ namespace LanguageEditor.Views
         private ElementData _selectedElemViewMode = ElementData.Properties;
         private Dictionary<string, object> _selectedElemProps = new Dictionary<string, object>();
         private Dictionary<string, object> _selectedElemAttrs = new Dictionary<string, object>();
+        private IPackager _packager;
 
-        public Editor(DiagramModel model, EditorMode mode)
+        public Editor(DiagramModel model, EditorMode mode, IPackager packager)
         {
             InitializeComponent();
 
             Text = model.Name;
-
             _canvas = diagramControl.Diagram;
+            _packager = packager;
 
             DataGridSetup();
             DiagramSetup();
@@ -246,9 +247,8 @@ namespace LanguageEditor.Views
         
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IPackager packager = XmlPackager.CreateInstance();
-
-            packager.Pack((DiagramModel)_canvas.Model, @"C:\Users\Professional\Desktop\sample.xml");
+            var model = (DiagramModel)_canvas.Model;
+            _packager.Pack(model, model.Data.FilePath);
         }
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)

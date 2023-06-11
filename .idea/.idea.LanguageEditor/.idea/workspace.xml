@@ -25,6 +25,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
   <component name="ProjectId" id="2Q0wcz3zsWIOymjRiZLe8hAdW8o" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -104,6 +107,7 @@
       <workItem from="1686236377847" duration="237000" />
       <workItem from="1686295366623" duration="2688000" />
       <workItem from="1686320906123" duration="514000" />
+      <workItem from="1686468183426" duration="4240000" />
     </task>
     <servers />
   </component>

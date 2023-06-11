@@ -24,7 +24,6 @@ namespace LanguageEditor.Models
             Name = $"model{Key}";
             CreatedBy = "User01";
             CreationDate = DateTime.Now;
-            FilePath = $@"{FileExtractor.GetMainDirPath()}{Name}\{Name}.xml";
         }
     }
 }

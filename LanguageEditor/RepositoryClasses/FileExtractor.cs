@@ -79,14 +79,18 @@ namespace LanguageEditor.RepositoryClasses
                 MessageBox.Show(e.Message, "Ошибка при сохранении config.txt", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public static void CreateProject(ModelData metamodel)
+        public static void CreateProject(DiagramModel metamodel, IPackager packager)
         {
             try
             {
                 var projDir = $@"{_repoPath}{metamodel.Name}\";
+                metamodel.Data.FilePath = projDir + $"{metamodel.Name}.xml";
+
                 Directory.CreateDirectory(projDir);
                 Directory.CreateDirectory(projDir + "models");
-                File.Create(projDir + $"{metamodel.Name}.xml");
+                var fs = File.Create(metamodel.Data.FilePath);
+                fs.Close();
+                packager.Pack(metamodel, metamodel.Data.FilePath);
             }
             catch (Exception e)
             {

@@ -2,9 +2,9 @@
 
 namespace LanguageEditor.RepositoryClasses
 {
-    interface IPackager
+    public interface IPackager
     {
         void Pack(DiagramModel model, string filepath);
-        DiagramModel Unpack();
+        DiagramModel Unpack(string filepath);
     }
 }

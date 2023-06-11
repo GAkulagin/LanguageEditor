@@ -10,16 +10,18 @@ namespace LanguageEditor.Views
     public partial class MainMenu : Form
     {
         private List<ModelFile> _metamodels;
+        private IPackager _packager = XmlPackager.CreateInstance();
 
         public MainMenu()
         {
             InitializeComponent();
-
             Figures.DefineExtraFigures();
         }
         
         private void SetListViewItems(ListView view, List<ModelFile> models)
         {
+            view.Clear();
+            
             foreach(var model in models)
             {
                 AddListViewItem(view, model);
@@ -37,19 +39,26 @@ namespace LanguageEditor.Views
 
         private void metamodelsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                ModelFile currentMetamodel = _metamodels[metamodelsListView.SelectedIndices[0]];
-                modelsListView.Clear();
-                SetListViewItems(modelsListView, currentMetamodel.Models);
-            }
-            catch { }
+            var currentMetamodel = _metamodels[metamodelsListView.SelectedIndices[0]];
+            
+            SetListViewItems(modelsListView, currentMetamodel.Models);
         }
 
         // event of metamodelListview
         private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            var idx = metamodelsListView.SelectedIndices[0];
+            var model = _packager.Unpack(_metamodels[idx].Path);
+
+            if (model == null)
+                MessageBox.Show(
+                    $"Не удалось открыть файл {_metamodels[idx].Name}. Возможно, файл не является представлением модели.",
+                    "Ошибка при чтении файла", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                var editor = new Editor(model, EditorMode.Metamodeling, _packager);
+                editor.Show();
+            }
         }
 
         // event of metamodelListview
@@ -124,13 +133,12 @@ namespace LanguageEditor.Views
 
         private void CreateMetamodelBtn_Click(object sender, EventArgs e)
         {
-            var data = new ModelData();
-            FileExtractor.CreateProject(data);
-            var editor = new Editor(new DiagramModel(data), EditorMode.Metamodeling);
-            var mf = new ModelFile(data.FilePath);
-            
-            AddListViewItem(metamodelsListView, mf);
-            _metamodels.Add(mf);
+            var model = new DiagramModel(new ModelData());
+            FileExtractor.CreateProject(model, _packager);
+            var editor = new Editor(model, EditorMode.Metamodeling, _packager);
+
+            _metamodels = FileExtractor.GetModelFiles();
+            SetListViewItems(metamodelsListView, _metamodels);
             
             editor.Show();
         }
